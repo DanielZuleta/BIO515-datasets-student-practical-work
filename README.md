@@ -1,8 +1,8 @@
 # BIO515 datasets
 
-This repository contains data intended for use by students in the Scientific Methodology for Biologists course at the University of Gothenburg (BIO515, P1, Autumn 2024).
+This repository contains data intended for use by students in the Scientific Methodology for Biologists course (BIO515, P1, Autumn 2024) at the University of Gothenburg.
 
-Each folders contains the datasets, code and results (figures) expected to be reproduced by students. Below is a brief description of each dataset.
+1. Each folder contains the data, code, and results (figures|tables) that students are expected to reproduce. Below is a brief description of each dataset (to be completed).
 
 ## 1_lambert_and_smiseth _2024
 Link: https://datadryad.org/stash/dataset/doi:10.5061/dryad.s7h44j1f2 \
