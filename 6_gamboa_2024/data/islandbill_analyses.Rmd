@@ -1,0 +1,1188 @@
+---
+title: "foraging_ANOVAs_MANOVA_lmmodels"
+output: html_document
+author: Maybellene P Gamboa
+date: 21-04-30
+manuscript: "Avian bill size is shaped by climate, not foraging efficiency, in song sparrows on the California Channel Islands"
+---
+
+Objective: Assess island differences in morphological and environmental factors. Run linear regression models to infer the relationship between environment and bill morphology.
+
+## 0. SETUP
+
+Install and load libraries, set working directory, and read in relevant datasets.
+
+```{r setup, include=FALSE}
+### A. Load libraries
+#install.packages("ggplot2")
+#if(!require(devtools)) install.packages("devtools")
+#devtools::install_github("heliosdrm/pwr")
+#install.packages("factoextra")
+#install.packages("Gifi")
+#install.packages("emmeans")
+#install.packages("MASS")
+#install.packages("olsrr")
+#install.packages("lme4")
+#install.packages("lattice")
+library(factoextra)
+library(MASS)
+library(rstatix)
+library(ggstatsplot)
+library(boot)
+library(Gifi)
+library(dplyr)
+library(emmeans)
+library(olsrr)
+library(ggplot2)
+library(lme4)
+library(lattice)
+
+### B. Set working directory
+# clear space
+rm(list=ls())
+# set space
+#setwd("~/Desktop")
+list.files()
+
+### C. Load datasets
+## Part 1 -- analyze vegetation & output veg PCs
+# dataset represents a contingency table for the different veg categories by island
+vegraw<-read.delim("R1I_veg_conttable.txt", row.names = 1)
+str(vegraw)
+head(vegraw)
+
+# dataset for running PCA
+vegdatpca<-read.csv("R1II_veg.csv")
+ranks<-vegdatpca[,c("island","site_name", "grass_rank","cbrush_rank","fennel_rank","lupine_rank","sage_rank","forbs_rank","other_rank")]
+str(ranks)
+summary(ranks[,3:9])
+
+
+## Part 2 -- examine environmental & morphological island means  
+# Morphology & temperature at sampling locations for individuals
+morph<-read.csv("R2I_billmorph_temp.csv")
+czbill<-subset(morph, island=="CZ")
+robill<-subset(morph, island=="RO")
+mibill<-subset(morph, island=="MI")
+
+# Max temperature for unique sampling locations only
+maxt<-read.csv("R2II_maxt.csv")
+czt<-subset(maxt, island=="CZ")
+rot<-subset(maxt, island=="RO")
+mit<-subset(maxt, island=="MI")
+# Vegetation results from nonlinear PCA of vegetation categories
+# This dataset has all sampling locations, but we were unable to sample all sites
+veg<-read.csv("R2III_nlvegresults.csv")
+czv<-subset(veg, island=="CZ")
+rov<-subset(veg, island=="RO")
+miv<-subset(veg, island=="MI")
+
+### Part 3 -- analyze bite force and foraging efficiency
+# Complete data (no NAs) to run linear regression models
+lmdat<-read.csv("R3I_lmmmodel_bill_temp_veg.csv") # merged after we got Part 1 results on veg
+
+### Part 4 -- plot Part 3, use data from Part 3
+
+### Part 5 -- analyze foraging efficiency
+# Merged, complete dataset
+feff<-read.csv("R5I_foraging_efficiency.csv")
+str(feff)
+feff$island<-as.factor(feff$island)
+feff$ss<-as.factor(feff$ss)
+unique(feff$ss) # 32 individuals
+
+### Part 6 -- analyze bite force
+bf<-read.csv("R61_biteforce.csv")
+bf$ss<-as.factor(bf$ss)
+str(bf)
+
+```
+
+## 1. Examine VEGETATION using Fisher's Test & nonlinear PCA
+
+Create contingency table with islands as column anmes and rows and vegetation categories. This is saved as veg_conttable.txt. 
+
+```{r}
+######### I. Fisher's Exact Test ######### 
+# If you need to load data, then..
+vegraw<-read.delim("R1I_veg_conttable.txt", row.names = 1)
+
+## Use simulate.p.value = TRUE, because there are 0s and values <5 & larger than 2x2 table
+## The simulate.p.value = TRUE applies a Monte Carlo simulation
+## B = number of simulations to run (default = 2000). 
+fish <- fisher.test(vegraw, simulate.p.value = TRUE, B=1e5)
+fish
+
+#### Results:
+#Fisher's Exact Test for Count Data with simulated p-value (based on 1e+05 replicates)
+#data:  veg
+#p-value = 1e-05
+#alternative hypothesis: two.sided
+
+```
+
+INTERPRETATION: There is a significant association between vegetation dimensions & island sampled
+
+```{r}
+######### II. Nonlinear PCA ######### 
+####### 1. Check data for pca #######
+str(ranks[,3:9])
+
+####### 2. Perform nonlinear PCA #######
+## This does NOT make linear assumptions
+## This transforms your ordinal data categories to maintain the ranks
+## This is a good explanation for how PCA differs from nonlinear PCA: https://towardsdatascience.com/beyond-ordinary-pca-nonlinear-principal-component-analysis-54a93915a702
+## Run nlpca in the Gifi package
+nl<-princals(ranks[,3:9])
+
+####### 3. Visualize & Interpret nonlinear PCA Results #######
+## a. Output summary
+summary(nl)
+#Loadings (cutoff = 0.1):
+#  Comp1  Comp2 
+#grass_rank  -0.785 -0.143
+#lupine_rank  0.615 -0.285
+#forbs_rank   0.675 -0.127
+#other_rank   0.655       
+#cbrush_rank -0.326 -0.782
+#fennel_rank         0.882
+#sage_rank    0.368 -0.200
+#
+#Importance (Variance Accounted For):
+#  Comp1   Comp2
+#Eigenvalues     2.1315  1.5526
+#VAF            30.4498 22.1798
+#Cumulative VAF 30.4500 52.6300
+
+## b. Output variable loadings
+nlloads<-round(nl$loadings,2)
+nlloads
+#D1    D2
+#grass_rank  -0.79 -0.14
+#cbrush_rank -0.33 -0.78
+#fennel_rank -0.10  0.88
+#lupine_rank  0.62 -0.29
+#sage_rank    0.37 -0.20
+#forbs_rank   0.68 -0.13
+#other_rank   0.65  0.08
+
+## c. Visualize loadings for nonlinear PCA
+plot(nl, "loadplot", main = "Loadings Plot Veg Data") 
+
+## d. Extract scores for individual sites from nlpca
+nlres<-as.data.frame(nl$objectscores)
+str(nlres)
+summary(nlres)
+
+## e. Merge island names & these results
+nlresisl<-cbind(ranks[,1:2],nlres)
+str(nlresisl)
+
+#write.csv(nlresisl, "R1II_veg.csv", row.names = FALSE)
+
+####### 5. Plot PCA results by island #######
+## a. Create base plot
+plot(nlresisl$D1, nlresisl$D2, xlim=c(-2.25,3.25), ylim=c(-1.8,2.5), xlab="Nonlinear Principal Component 1 (30.4%)",
+     ylab = "Nonlinear Principal Component 2 (22.2%)", main="Nonlinear PCA of Vegetation Categories")
+
+## b. Subset by island to color code points
+cznl<-subset(nlresisl, island=="CZ")
+ronl<-subset(nlresisl, island=="RO")
+minl<-subset(nlresisl, island=="MI")
+
+## c. Overlay color-coded points by island
+points(cznl$D1, cznl$D2, pch=20, col="firebrick")
+points(ronl$D1, ronl$D2, pch=20, col="darkorange")
+points(minl$D1, minl$D2, pch=20, col="dodgerblue")
+
+## d. Add 95% contours by island
+czdims <- kde2d(cznl$D1, cznl$D2, n = 50, lims = c(-1.5,3.25, -1.25,2.75))
+contour(czdims, levels=c(0.05), add=TRUE, drawlabels=FALSE,lty=1, lwd=3, col="firebrick") #95% KDE
+rodims <- kde2d(ronl$D1, ronl$D2, n = 50, lims = c(-2,2.5, -1.8,0.5))
+contour(rodims, levels=c(0.05), add=TRUE, drawlabels=FALSE,lty=1, lwd=3, col="darkorange") #95% KDE
+midims <- kde2d(minl$D1, minl$D2, n = 50, lims = c(-2.25,2.75, -1.8,0.5))
+contour(midims, levels=c(0.05), add=TRUE, drawlabels=FALSE,lty=1, lwd=3, col="dodgerblue") #95% KDE
+
+## merge all data to create R3I_lmmmodel_bill_temp_veg.csv
+
+```
+
+INTERPRETATION: 95% CI overlap in KDE space 
+
+## 2. Run tests to determine if there are island differences in bill dimensions, maximum temperature, and vegetation dimensions
+
+We will model bill surface area (raw) and bill surface area (residual, corrected for body size), maximum temperature, and vegetation dimensions (kruskal.test function) to determine whether these variables differ by island. We will run post-hoc tests using Mann-Whitney U (wilcox.test) and extract pairwise differences in mean and 95% confidence intervals. 
+
+```{r}
+######### 0. Create PCA of body size and get size-corrected bill size ########
+### A. Output body size here using wing and mass
+data<-read.csv("morphology_vegetation.csv")
+str(data) # column 16 & 17 are mass and wing
+
+bod<-prcomp(data[,16:17], center = TRUE, scale=TRUE)
+summary(bod)
+#PC1 explains 67% variation
+#wing and mass load positively and equally to PC1 --> larger PC1 value = larger body size
+prout<-bod$x[,1]
+data$bodsize<-prout
+
+### B. Get residuals from linear regression of bill surface area (raw) and body size to get size-corrected body size
+fit<-lm(bill_sa~bodsize, data=data)
+## visualize linear regression
+plot(data$bodsize, data$bill_sa)
+abline(fit)
+summary(fit)
+## Summary output: 
+#Call:
+#lm(formula = bill_sa ~ bodsize, data = data)
+#
+#Residuals:
+#     Min       1Q   Median       3Q      Max 
+#-17.0602  -4.0769   0.0032   3.6051  17.7914 
+#
+#Coefficients:
+#            Estimate Std. Error t value Pr(>|t|)    
+#(Intercept)  79.9443     0.2326 343.739  < 2e-16 ***
+#bodsize       1.1645     0.2007   5.801 1.12e-08 ***
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+#Residual standard error: 5.414 on 540 degrees of freedom
+#Multiple R-squared:  0.05866,	Adjusted R-squared:  0.05692 
+#F-statistic: 33.65 on 1 and 540 DF,  p-value: 1.123e-08
+plot(data$bodsize, fit$residuals)
+data$billsc<-fit$residuals
+str(data)
+write.csv(data,"R2I_billmorph_temp.csv")
+
+######### I. Model bill surface area (raw) ######### 
+#### If need to load data, then.. #### 
+morph<-read.csv("R2I_billmorph_temp.csv")
+czbill<-subset(morph, island=="CZ")
+robill<-subset(morph, island=="RO")
+mibill<-subset(morph, island=="MI")
+
+#### 0. Explore visually ####
+## histograms
+p1<-ggplot(morph, aes(x=bill_sa, fill=island, color=island)) +
+  geom_histogram(color="#dff7f5", alpha=0.5, position ="identity") 
+p1 + scale_color_manual(values=c("#F08080", "#Add8e6", "#FFDEAD")) + 
+  scale_fill_manual(values=c("#F08080", "#Add8e6", "#FFDEAD"))
+## boxplots
+boxplot(morph$bill_sa~morph$island)
+
+#### 1. Assess whether assumptions of normality & homogeneity of variance met #### 
+# Normality
+qqnorm(morph$bill_sa)
+qqline(morph$bill_sa)
+shapiro.test(morph$bill_sa) # checks
+
+# HOV - homoscedasticity
+levene_test(bill_sa~island, data=morph) # p < 0.05 = HETEROSCEDASTICITY
+
+
+#### 2. Run non-parametric alternative to ANOVA -- Kruskal-Wallis Test #### 
+kwbsa<-kruskal.test(bill_sa~island, data=morph)
+kwbsa
+# 	Kruskal-Wallis rank sum test
+#
+#data:  bill_sa by island
+#Kruskal-Wallis chi-squared = 138.3, df = 2, p-value < 2.2e-16
+
+#### 3. Post-hoc Pairwise comparisons (Dunn's Test) & Bootstrapped 95%CI around median #### 
+dunn_test(morph, bill_sa~island, p.adjust.method="bonferroni")
+## A tibble: 3 × 9
+#  .y.     group1 group2    n1    n2 statistic        p    p.adj p.adj.signif
+#* <chr>   <chr>  <chr>  <int> <int>     <dbl>    <dbl>    <dbl> <chr>       
+#1 bill_sa CZ     MI       244   104    -11.8  6.28e-32 1.88e-31 ****        
+#2 bill_sa CZ     RO       244   194     -4.31 1.63e- 5 4.88e- 5 ****        
+#3 bill_sa MI     RO       104   194      7.92 2.38e-15 7.15e-15 ****   
+
+## visualize Dunn's test
+ggbetweenstats(data = morph, y = bill_sa, x = island, type = "nonparametric",   p.adjust.method = "bonferroni")
+
+## Output bootstrapped 95% CI (non-normal data) using adjusted bootstrap percentile method
+# Santa Cruz
+bootbillcz<-boot(data = czbill$bill_sa,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootbillcz)
+#Level     Percentile            BCa          
+#95%   (81.54, 83.14 )   (81.54, 83.14 )  
+#Calculations and Intervals on Original Scale
+
+bootbillro<-boot(data = robill$bill_sa,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootbillro)
+#Level     Percentile            BCa          
+#95%   (79.31, 80.85 )   (79.31, 80.83 )  
+#Calculations and Intervals on Original Scale
+
+bootbillmi<-boot(data = mibill$bill_sa,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootbillmi)
+#Level     Percentile            BCa          
+#95%   (73.71, 75.22 )   (73.70, 75.15 )  
+#Calculations and Intervals on Original Scale
+
+## Calculate pairwise comparisons
+pairwiseCI(bill_sa~island, morph, alternative = "two.sided", conf.level = 0.95, method = "Median.diff")
+#95 %-confidence intervals 
+# Method:  Difference of medians (percentile bootstrap) 
+#        estimate  lower  upper
+#MI-CZ   -7.770 -8.963 -6.779
+#RO-CZ   -1.922 -3.152 -1.018
+#RO-MI    5.849  4.674  6.826
+
+######### II. Model bill surface area (residual) ######### 
+# If need to load data, then..
+morph<-read.csv("R2I_billmorph_temp.csv")
+
+#### 0. Explore visually #### 
+## histograms
+p2<-ggplot(morph, aes(x=scbill, fill=island, color=island)) +
+  geom_histogram(color="#dff7f5", alpha=0.5, position ="identity") 
+p2 + scale_color_manual(values=c("#F08080", "#Add8e6", "#FFDEAD")) + 
+  scale_fill_manual(values=c("#F08080", "#Add8e6", "#FFDEAD"))
+## boxplots
+boxplot(morph$scbill~morph$island)
+
+#### 1. Assess whether assumptions of normality & homogeneity of variance met #### 
+# Normality
+qqnorm(morph$scbill)
+qqline(morph$scbill)
+shapiro.test(morph$scbill) # checks
+
+# HOV - homoscedasticity
+levene_test(scbill~island, data=morph) # p < 0.05 = HETEROSCEDASTICITY
+
+#### 2. Run non-parametric alternative to ANOVA -- Kruskal-Wallis Test #### 
+kwbsc<-kruskal.test(billsc~island, data=morph)
+kwbsc
+# 	Kruskal-Wallis rank sum test
+#
+#data:  billsc by island
+#Kruskal-Wallis chi-squared = 146.23, df = 2, p-value < 2.2e-16
+
+#### 3. Post-hoc Pairwise comparisons (Dunn's Test) & Bootstrapped 95%CI around median #### 
+dunn_test(morph, billsc~island, p.adjust.method="bonferroni")
+## A tibble: 3 × 9
+#  .y.    group1 group2    n1    n2 statistic        p    p.adj p.adj.signif
+#* <chr>  <chr>  <chr>  <int> <int>     <dbl>    <dbl>    <dbl> <chr>       
+#1 billsc CZ     MI       244   104    -12.0  3.71e-33 1.11e-32 ****        
+#2 billsc CZ     RO       244   194     -5.78 7.31e- 9 2.19e- 8 ****        
+#3 billsc MI     RO       104   194      6.98 2.92e-12 8.75e-12 ****    
+
+## visualize Dunn's test
+ggbetweenstats(data = morph, y = billsc, x = island, type = "nonparametric",   p.adjust.method = "bonferroni")
+
+## Output bootstrapped 95% CI (non-normal data) using adjusted bootstrap percentile method
+# Santa Cruz
+bootbillsccz<-boot(data = czbill$billsc,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootbillsccz)
+#Level     Percentile            BCa          
+#95%   ( 1.908,  3.221 )   ( 1.908,  3.221 )  
+#Calculations and Intervals on Original Scale
+
+bootbillscro<-boot(data = robill$billsc,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootbillscro)
+#Level     Percentile            BCa          
+#95%   (-1.0949,  0.5401 )   (-1.0950,  0.4689 )  
+#Calculations and Intervals on Original Scale
+
+bootbillscmi<-boot(data = mibill$billsc,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootbillscmi)
+#Level     Percentile            BCa          
+#95%   (-5.934, -4.162 )   (-6.073, -4.178 )  
+#Calculations and Intervals on Original Scale
+
+## Calculate pairwise comparisons
+pairwiseCI(billsc~island, morph, alternative = "two.sided", conf.level = 0.95, method = "Median.diff")
+#95 %-confidence intervals 
+# Method:  Difference of medians (percentile bootstrap) 
+#      estimate  lower  upper
+#MI-CZ   -7.531 -8.691 -6.356
+#RO-CZ   -2.679 -3.746 -1.698
+#RO-MI    4.852  3.620  5.968
+
+######### III. Maximum temperature ######### 
+# If need to load data, then..
+maxt<-read.csv("R2II_maxt.csv")
+
+#### 0. Explore visually #### 
+## histograms
+p3<-ggplot(maxt, aes(x=maxt, fill=island, color=island)) +
+  geom_histogram(color="#dff7f5", alpha=0.5, position ="identity") 
+p3 + scale_color_manual(values=c("#F08080", "#Add8e6", "#FFDEAD")) + 
+  scale_fill_manual(values=c("#F08080", "#Add8e6", "#FFDEAD"))
+## boxplots
+boxplot(maxt$maxt~maxt$island)
+
+#### 1. Assess whether assumptions of normality & homogeneity of variance met #### 
+# Normality
+qqnorm(maxt$maxt)
+qqline(maxt$maxt)
+shapiro.test(maxt$maxt) # NON-NORMALITY
+
+# HOV - homoscedasticity
+levene_test(maxt~island, data=maxt) # p < 0.05 = HETEROSCEDASTICITY
+
+#### 2. Run non-parametric alternative to ANOVA -- Kruskal-Wallis Test #### 
+kwt<-kruskal.test(maxt~island, data=maxt)
+kwt
+# 	Kruskal-Wallis rank sum test
+#
+#data:  maxt by island
+#Kruskal-Wallis chi-squared = 364.4, df = 2, p-value < 2.2e-16
+
+
+#### 3. Post-hoc Pairwise comparisons (Dunn's Test) & Bootstrapped 95%CI around median #### 
+dunn_test(maxt, maxt~island, p.adjust.method="bonferroni")
+## A tibble: 3 × 9
+#   .y.   group1 group2    n1    n2 statistic        p    p.adj p.adj.signif
+#* <chr> <chr>  <chr>  <int> <int>     <dbl>    <dbl>    <dbl> <chr>       
+#1 maxt  CZ     MI       244   104    -20.1  1.68e-89 5.04e-89 ****        
+#2 maxt  CZ     RO       244   194    -14.6  3.21e-48 9.63e-48 ****        
+#3 maxt  MI     RO       104   194      7.78 7.26e-15 2.18e-14 ****      
+
+## visualize Dunn's test
+ggbetweenstats(data = maxt, y = maxt, x = island, type = "nonparametric",   p.adjust.method = "bonferroni")
+
+## Output bootstrapped 95% CI (non-normal data) using adjusted bootstrap percentile method
+czmt<-subset(maxt, island=="CZ")
+romt<-subset(maxt, island=="RO")
+mimt<-subset(maxt, island=="MI")
+
+# Santa Cruz
+bootmtcz<-boot(data = czmt$maxt,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootmtcz)
+#Level     Percentile            BCa          
+#95%   (23.1, 23.2 )   (23.0, 23.0 )  
+#Calculations and Intervals on Original Scale
+
+bootmtro<-boot(data = romt$maxt,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootmtro)
+#Level     Percentile            BCa          
+#95%   (22.20, 22.30 )   (22.05, 22.10 )     
+#Calculations and Intervals on Original Scale
+
+bootmtmi<-boot(data = mimt$maxt,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootmtmi)
+#Level     Percentile            BCa          
+#95%   (21.3, 21.4 )   (21.3, 21.4 ) 
+#Calculations and Intervals on Original Scale
+
+## Calculate pairwise comparisons
+pairwiseCI(maxt~island, maxt, alternative = "two.sided", conf.level = 0.95, method = "Median.diff")
+#95 %-confidence intervals 
+# Method:  Difference of medians (percentile bootstrap) 
+#      estimate  lower  upper
+#MI-CZ    -1.75  -1.8  -1.7
+#RO-CZ    -0.90  -1.0  -0.8
+#RO-MI     0.85   0.8   1.0
+  
+######### IV. Vegetation PC1 ######### 
+# If need to load data, then..
+veg<-read.csv("R2III_nlvegresults.csv")
+
+#### 0. Explore visually #### 
+## histograms 
+p4<-ggplot(veg, aes(x=D1, fill=island, color=island)) +
+  geom_histogram(color="#dff7f5", alpha=0.5, position ="identity") 
+p4 + scale_color_manual(values=c("#F08080", "#Add8e6", "#FFDEAD")) + 
+  scale_fill_manual(values=c("#F08080", "#Add8e6", "#FFDEAD"))
+## boxplots
+boxplot(veg$D1~veg$island)
+
+#### 1. Assess whether assumptions of normality & homogeneity of variance met #### 
+# Normality
+qqnorm(veg$D1)
+qqline(veg$D1)
+shapiro.test(veg$D1) # NON-NORMALITY
+
+# HOV - homoscedasticity
+levene_test(D1~island, data=veg) # p < 0.05 = HETEROSCEDASTICITY
+
+#### 2. Run non-parametric alternative to ANOVA -- Kruskal-Wallis Test #### 
+kwv1<-kruskal.test(D1~island, data=veg)
+kwv1
+# 	Kruskal-Wallis rank sum test
+#
+#data:  D1 by island
+#Kruskal-Wallis chi-squared = 31.732, df = 2, p-value = 1.287e-07
+
+#### 3. Post-hoc Pairwise comparisons (Dunn's Test) & Bootstrapped 95%CI around median #### 
+dunn_test(veg, D1~island, p.adjust.method="bonferroni")
+## A tibble: 3 × 9
+#   .y.   group1 group2    n1    n2 statistic        p    p.adj p.adj.signif
+#* <chr> <chr>  <chr>  <int> <int>     <dbl>    <dbl>    <dbl> <chr>       
+#1 D1    CZ     MI       225    68      1.86 0.0628      0.189      ns          
+#2 D1    CZ     RO       225   142     -4.52 0.00000632  0.0000190  ****        
+#3 D1    MI     RO        68   142     -5.03 0.000000498 0.00000149 ****         
+
+## visualize Dunn's test
+ggbetweenstats(data = veg, y = D1, x = island, type = "nonparametric",   p.adjust.method = "bonferroni")
+
+## Output bootstrapped 95% CI (non-normal data) using adjusted bootstrap percentile method
+czv<-subset(veg, island=="CZ")
+rov<-subset(veg, island=="RO")
+miv<-subset(veg, island=="MI")
+
+# Santa Cruz
+bootd1cz<-boot(data = czv$D1,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootd1cz)
+#Level     Percentile            BCa          
+#95%   (-0.3171, -0.0288 )   (-0.3171, -0.0528 )  
+#Calculations and Intervals on Original Scale
+
+bootd1ro<-boot(data = rov$D1,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootd1ro)
+#Level     Percentile            BCa          
+#95%   (-0.6509, -0.4641 )   (-0.7677, -0.5136 )     
+#Calculations and Intervals on Original Scale
+
+bootd1mi<-boot(data = miv$D1,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootd1mi)
+#Level     Percentile            BCa          
+#95%   ( 0.2031,  0.6616 )   ( 0.1611,  0.6433 )
+#Calculations and Intervals on Original Scale
+
+## Calculate pairwise comparisons
+pairwiseCI(D1~island, veg, alternative = "two.sided", conf.level = 0.95, method = "Median.diff")
+#95 %-confidence intervals 
+# Method:  Difference of medians (percentile bootstrap) 
+#      estimate  lower  upper
+#MI-CZ   0.7245  0.3302  0.9111
+#RO-CZ  -0.3064 -0.5365 -0.2019
+#RO-MI  -1.0310 -1.2330 -0.6999
+
+######### V. Vegetation PC2 ######### 
+### 0. Explore visually
+## histograms
+p5<-ggplot(veg, aes(x=D2, fill=island, color=island)) +
+  geom_histogram(color="#dff7f5", alpha=0.5, position ="identity") 
+p5 + scale_color_manual(values=c("#F08080", "#Add8e6", "#FFDEAD")) + 
+  scale_fill_manual(values=c("#F08080", "#Add8e6", "#FFDEAD"))
+## boxplots
+boxplot(veg$D2~veg$island)
+
+### 1. Assess whether assumptions of normality & homogeneity of variance met
+# Normality
+qqnorm(veg$D2)
+qqline(veg$D2)
+shapiro.test(veg$D2) # NON-NORMALITY
+
+# HOV - homoscedasticity
+levene_test(D2~island, data=veg) # p < 0.05 = HETEROSCEDASTICITY
+
+### 2. Run non-parametric alternative to ANOVA -- Kruskal-Wallis Test
+kwv2<-kruskal.test(D2~island, data=veg)
+kwv2
+# 	Kruskal-Wallis rank sum test
+#
+#data:  D2 by island
+#Kruskal-Wallis chi-squared = 241.85, df = 2, p-value < 2.2e-16
+
+
+#### 3. Post-hoc Pairwise comparisons (Dunn's Test) & Bootstrapped 95%CI around median #### 
+dunn_test(veg, D2~island, p.adjust.method="bonferroni")
+## A tibble: 3 × 9
+#   .y.   group1 group2    n1    n2 statistic        p    p.adj p.adj.signif
+#* <chr> <chr>  <chr>  <int> <int>     <dbl>    <dbl>    <dbl> <chr>       
+#1 D2    CZ     MI       225    68  -10.8    2.88e-27 8.64e-27 ****        
+#2 D2    CZ     RO       225   142  -13.9    6.19e-44 1.86e-43 ****        
+#3 D2    MI     RO        68   142    0.0468 9.63e- 1 1   e+ 0 ns     
+
+## visualize Dunn's test
+ggbetweenstats(data = veg, y = D2, x = island, type = "nonparametric",   p.adjust.method = "bonferroni")
+
+# Santa Cruz
+bootd2cz<-boot(data = czv$D2,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootd2cz)
+#Level     Percentile            BCa          
+#95%   ( 0.4010,  0.7132 )   ( 0.4010,  0.7132 )    
+#Calculations and Intervals on Original Scale
+
+bootd2ro<-boot(data = rov$D2,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootd2ro)
+#Level     Percentile            BCa          
+#95%   (-0.8607, -0.7291 )   (-0.8607, -0.7318 )      
+#Calculations and Intervals on Original Scale
+
+bootd2mi<-boot(data = miv$D2,statistic = function(x,i) median(x[i]),R = 1000)
+boot.ci(bootd2mi)
+#Level     Percentile            BCa          
+#95%   ( 0.2031,  0.6616 )   ( 0.1611,  0.6433 )
+#Calculations and Intervals on Original Scale
+
+## Calculate pairwise comparisons
+pairwiseCI(D2~island, veg, alternative = "two.sided", conf.level = 0.95, method = "Median.diff")
+#95 %-confidence intervals 
+# Method:  Difference of medians (percentile bootstrap) 
+#      estimate  lower  upper
+#MI-CZ  -1.4499 -1.5742 -1.2005
+#RO-CZ  -1.4263 -1.5454 -1.1961
+#RO-MI   0.0237 -0.1244  0.1379
+
+```
+
+INTERPRETATION OF RESULTS:
+Bill surface area (Raw): Significantly different among all pairwise comparisons. 
+Bill surface area (Residual): Significantly different among all pairwise comparisons. 
+Max T: Significantly different among all pairwise comparisons. 
+Veg PC1: Santa Rosa significantly different
+Veg PC2: Santa Cruz significantly different
+
+
+## 3. Linear regression modeling of bill surface area by environments
+
+Here, we will use the lm function to model bill surface area by maximum temperature and vegetation dimensions (PC1 and PC2). 
+
+```{r}
+######### I. Model bill surface area (raw) ######### 
+# If still need to read in data, then..
+lmdat<-read.csv("R3I_lmmmodel_bill_temp_veg.csv")
+
+### 1. Check data structure
+str(lmdat)
+tapply(lmdat$billsc, lmdat$island, length)
+
+### 2. Test for relationship between predictors & scbill
+billenv<-lm(billsc~maxt+veg1+veg2, data=lmdat)
+billenv
+#Call:
+#  lm(formula = billsc ~ maxt + veg1 + veg2, data = lmdat)
+#
+#Coefficients:
+#  (Intercept)         maxt         veg1         veg2  
+#-8.464e+01    3.755e+00   -9.840e-02   -7.667e-04  
+
+summary(billenv)
+#Call:
+#lm(formula = billsc ~ maxt + veg1 + veg2, data = lmdat)
+
+#Residuals:
+#     Min       1Q   Median       3Q      Max 
+#-12.0114  -3.3512  -0.0397   3.2889  18.6509 
+#
+#Coefficients:
+#              Estimate Std. Error t value Pr(>|t|)    
+#(Intercept) -8.464e+01  8.092e+00 -10.460   <2e-16 ***
+#maxt         3.755e+00  3.589e-01  10.461   <2e-16 ***
+#veg1        -9.840e-02  2.283e-01  -0.431    0.667    
+#veg2        -7.667e-04  2.766e-01  -0.003    0.998    
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+#Residual standard error: 4.732 on 442 degrees of freedom
+#Multiple R-squared:  0.2856,	Adjusted R-squared:  0.2808 
+#F-statistic: 58.91 on 3 and 442 DF,  p-value: < 2.2e-16
+
+### 3. Check for fit of model and adherence to assumptions
+## a. Residuals v fitted = nearly straight line around 0 = GOOD, fits assumption of linear distribution
+plot(billenv, 1)
+ols_plot_resid_fit(billenv)
+
+## b. Normality of residuals = most along the line with a couple of outliers. Errors follow normal distribution. Strong correlation between residuals & fit.
+plot(billenv, 2)
+ols_plot_resid_qq(billenv)
+ols_test_normality(billenv) # normality
+ols_test_correlation(billenv)
+
+## c. Homoscedasticity = homogeneity of variance! Horizontal line with equally spread points
+plot(billenv, 3)
+
+## d. Residuals v. leverage = mostly good. There are only a couple of points that have high standardized residuals, but there aren't many points that have a relatively high leverage (>0.02).
+plot(billenv, 5) 
+
+### 4. Output beta coefficients 
+betas<-lm.beta(billenv)
+print(betas) # standarized beta coefficients
+#Call:
+#lm(formula = billsc ~ maxt + veg1 + veg2, data = lmdat)
+
+#Standardized Coefficients::
+# (Intercept)         maxt         veg1         veg2 
+#          NA  0.532933576 -0.017384685 -0.000140827 
+
+summary(betas) # summary including these betas
+
+#Call:
+#lm(formula = billsc ~ maxt + veg1 + veg2, data = lmdat)
+#
+#Residuals:
+#     Min       1Q   Median       3Q      Max 
+#-12.0114  -3.3512  -0.0397   3.2889  18.6509 
+#
+#Coefficients:
+#              Estimate Standardized Std. Error t value Pr(>|t|)    
+#(Intercept) -8.464e+01           NA  8.092e+00 -10.460   <2e-16 ***
+#maxt         3.755e+00    5.329e-01  3.589e-01  10.461   <2e-16 ***
+#veg1        -9.840e-02   -1.738e-02  2.283e-01  -0.431    0.667    
+#veg2        -7.667e-04   -1.408e-04  2.766e-01  -0.003    0.998    
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+#Residual standard error: 4.732 on 442 degrees of freedom
+#Multiple R-squared:  0.2856,	Adjusted R-squared:  0.2808 
+#F-statistic: 58.91 on 3 and 442 DF,  p-value: < 2.2e-16
+
+confint(billenv)
+#                   2.5 %      97.5 %
+#(Intercept) -100.5470166 -68.7397213
+#maxt           3.0493113   4.4600571
+#veg1          -0.5470823   0.3502879
+#veg2          -0.5444352   0.5429017
+```
+
+INTERPRETATION: Maximum temperature significantly predicts bill surface area, but vegetation dimensions do not. 
+
+## 4. PLOT linear regression results
+
+Create dataframe to predict using lm model. Plot bill surface area by maximum temperature, holding vegetation constant. Vegetation dimensions are not signficant predictors of residual bill surface area. 
+
+```{r}
+##### I. Plot the predicted model! #####
+### 1. Make model predictions based on islands
+## Predict by island by creating dataframes with island measurements, hold veg constant & have scbill as predictors
+# Max T
+maxdat<-seq(21, 24.5, 0.01) # range of max temperatures
+str(maxdat)
+head(maxdat)
+# Veg dimensions -- keep constant
+vegdat1<-rep.int(0, 351)
+vegdat2<-rep.int(0, 351)
+newdat<-data.frame("maxt"=maxdat,"veg1"=vegdat1, "veg2"=vegdat2)
+
+## Overall
+pred.billenv<-as.data.frame(predict.lm(billenv, newdata=newdat, interval=c("confidence"), type=c("response"))) 
+
+### 2. Plot everything
+## Create plot from model
+plot(lmdat$billsc~lmdat$maxt, xlim=c(21,24.5), ylim=c(-20,22), xlab="", ylab="", xaxt='n', axes=FALSE, pch=20, cex=0.9)
+
+## Subset dataset by island to draw color-coordinated points
+CZ<-subset(lmdat, island=="CZ")
+RO<-subset(lmdat, island=="RO")
+MI<-subset(lmdat, island=="MI")
+
+## Draw points
+points(CZ$billsc~CZ$maxt, col="darkred", pch=20, cex=0.9)
+points(RO$billsc~RO$maxt, col="darkorange", pch=20, cex=0.9)
+points(MI$billsc~MI$maxt, col="blue", pch=20, cex=0.9)
+
+## Draw predicted lines
+lines(newdat$maxt, pred.billenv$fit, lty=1, lwd=2)
+lines(newdat$maxt, pred.billenv$lwr, lty=2)
+lines(newdat$maxt, pred.billenv$up, lty=2)
+
+## Axes
+# Y axis
+title(ylab=expression("Residual Bill Surface Area "("mm"^2)), mgp=c(2,1,1))
+axis(2, at=seq(-20, 20, by=5), labels = FALSE, col.ticks="black", col="white")
+abline(v=20.86)
+lablist.y<-as.vector(c(-20,-15, -10, -5, 0,5, 10, 15, 20))
+text(y = seq(-20, 20, by=5), par("usr")[1]-0.03, labels = lablist.y, srt = 0, pos = 2, xpd = TRUE)
+
+# X axis
+axis(1,  at=seq(21, 24.5, by=0.5), labels = TRUE, col.ticks="black", col="white")
+abline(h=-21.7)
+
+legend(21,20, 
+  legend = c("San Miguel", "Santa Rosa", "Santa Cruz"), 
+  col=c("blue", "darkorange", "darkred"),
+  pch = 20, 
+  bty = "n", 
+  text.col = "black", 
+  horiz = F,
+  cex=0.75)
+title(xlab="Maximum Temperature (\u00B0C)", mgp=c(2,1,1))
+
+```
+
+INTERPRETATION: For every 1 unit increase in temperature, residual bill surface area increases by 0.5.
+
+## 5. ANALYSES of foraging efficiency (bite force & seed extraction time)
+
+We'll look at the relationship between seed extraction time and overall bill shape. First, we'll create principal components of correlated bill dimensions.
+
+```{r}
+##### 0. Check to see if there is a fatigue effect (i.e., slower extraction over time) #####
+seed<-read.csv("foraging_supplementaryfigs.csv")
+str(seed)
+seed$ss<-as.factor(seed$ss)
+## Run LMER with individual as random effect
+test<-lmer(time~timesincest_m + (1|ss), data=seed)
+summary(test)
+anova(test) # When controlling for individual with a random effect, there is not significant relationship between time since the bird first started extracting a seed in the trial and seed extraction time
+
+## Create visualization for supplementary figure
+czseed<-subset(seed, island=="CZ")
+miseed<-subset(seed, island=="MI")
+library(gridExtra)
+#Santa Cruz birds
+plot1<-czseed %>% ggplot( aes(x=timesincest_m, y=time, group=ss, color=ss)) + geom_line() + xlab("Time Since Start (min)") + ylab("Seed Extraction Time (s)") + ggtitle("Santa Cruz Island Foraging Trials") +   theme_minimal() + theme(legend.position = "none") 
+# San Miguel birds
+plot2<-miseed %>% ggplot( aes(x=timesincest_m, y=time, group=ss, color=ss)) + geom_line() + xlab("Time Since Start (min)") + ylab("Seed Extraction Time (s)") + ggtitle("San Miguel Island Foraging Trials") +  theme_minimal() + theme(legend.position = "none") 
+#plot both side by side
+grid.arrange(plot1, plot2, ncol=2)
+# save for supplementary figure
+
+##### I. Run PCA of bill dimensions #####
+feff<-read.csv("R5I_foraging_efficiency.csv")
+
+### A. Check cleaned dataset
+str(feff) # bill dimensions are columns 5-7
+
+### B. Run PCA of bill dimensions
+pcabill<-prcomp(feff[,c(5:7)], center=TRUE, scale=TRUE)
+
+### C. Visualize & Interpret PCA (linear assumptions) Results #######
+## i. Screeplot of PCs
+fviz_eig(pcabill)
+# First 2 PCs explain much of the variation
+
+## ii. Confirm variation explained with summary
+summary(pcabill) 
+#59% variation explained w/ PC1
+#30% variation explained w/ PC2
+#PC1&2 explain 89% variation
+
+## iii. Look at the variable contributions
+# Positively correlated variables will point in the same direction & others will point in opposite directions
+fviz_pca_var(pcabill,
+             col.var = "contrib", # Color by contributions to the PC
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE     # Avoid text overlapping
+)
+
+
+## cii. Contributions of variables to PC1
+fviz_contrib(pcabill, choice = "var", axes = 1, top = 10)
+# bill depth & width, more negative = deeper, wider bills
+
+## ciii. Contributions of variables to PC2
+fviz_contrib(pcabill, choice = "var", axes = 2, top = 10)
+# all length, more positive = longer bills
+
+## d. Interpret this with the variable contributions
+# Dim 1 -- (-) deeper, wider, shorter
+# Dim 1 -- (+) shallower, narrower, longer
+# Dim 2 -- (+) longer 
+# Dim 2 -- (-) shorter
+
+####### 4. Output PCA results #######
+## a. Eigenvalues
+eig.val <- get_eigenvalue(pcabill)
+eig.val
+# PC1 eigen = 1.77
+# PC2 eigen = 0.89
+
+## b. Results for Variables
+res.var <- get_pca_var(pcabill)
+# Coordinates
+res.var$coord          
+# Contributions to the PCs
+res.var$contrib        
+# Quality of representation 
+res.var$cos2           
+
+## c. Results for individuals
+res.ind <- get_pca_ind(pcabill)
+# Coordinates
+res.ind$coord         
+# Contributions to the PCs
+res.ind$contrib
+# Quality of representation 
+res.ind$cos2          
+
+## d. Merge results with dataset that has island names (df = ranks)
+pcares<-cbind(feff,res.ind$coord[,1:2])
+str(pcares)
+pcares$billpc<-pcares$Dim.1
+seeds<-pcares[,c(1:11,14)]
+
+## e. write results
+#write.csv(seeds, "foraging_pc1bill.csv", row.names = FALSE)
+
+```
+
+INTERPRETATION (PCA RESULTS):
+Dim 1 -- (-) deeper, wider, shorter
+Dim 1 -- (+) shallower, narrower, longer
+Dim 2 -- (+) longer 
+Dim 2 -- (-) shorter
+
+Let's now perform descriptive statistics on the individuals included in this analysis. 
+
+```{r}
+##### II. Summarize individuals included in analysis #####
+### A. Read in simplifed dataset on individuals included
+inds<-read.csv("R52_foraging_pcs_individualmeasures.csv")
+str(inds)
+
+### Bi. Counts by island
+tapply(inds$ss, inds$island, length)
+#CZ MI 
+#23 9
+
+### Bii. Summarize observations 
+tapply(inds$obs, inds$island, summary)
+#$CZ
+#   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#   8.00   60.00   60.00   64.52   60.00  163.00 
+#$MI
+#   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#   9.00   35.00   53.00   43.78   60.00   60.00 
+
+tapply(inds$obs, inds$island, sd)
+#      CZ       MI 
+#26.85969 19.59450  
+
+### Bii. Summarize pc1 (bill dimensios) 
+tapply(inds$pc1, inds$island, summary)
+#$CZ
+#   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#-2.4623 -1.3451 -0.4594 -0.4785  0.4533  2.6267 
+#$MI
+#   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#-0.4747  1.3164  1.7309  1.5268  2.0164  3.0057  
+
+tapply(inds$pc1, inds$island, sd)
+#      CZ       MI 
+#  1.2022123 0.9552212 
+
+                                     
+```
+
+Now, we run a LMM using individual as a random effect, pc1 of bill dimensions as a fixed effect, and seed extraction time as the response.
+
+```{r}
+##### III. Run LMM #####
+# If need to read in data, then
+seeds<-read.csv("R53_foraging_pc1bill.csv")
+
+### A. Create LMM 
+tse<-lmer(time~billpc+(1|ss), data=seeds)
+
+### B. Examine output 
+tse # model successfully converged
+summary(tse)
+#Linear mixed model fit by REML. t-tests use Satterthwaite's method #[lmerModLmerTest]
+#Formula: time ~ billpc + (1 | ss)
+#   Data: seeds
+#
+#REML criterion at convergence: 6630.2
+#
+#Scaled residuals: 
+#    Min      1Q  Median      3Q     Max 
+#-2.2857 -0.5812 -0.1965  0.3642 10.5372 
+#
+#Random effects:
+# Groups   Name        Variance Std.Dev.
+# ss       (Intercept) 0.306    0.5532  
+# Residual             1.983    1.4082  
+#Number of obs: 1861, groups:  ss, 32
+#
+#Fixed effects:
+#             Estimate Std. Error        df t value Pr(>|t|)    
+#(Intercept)  2.556779   0.104687 30.878376  24.423   <2e-16 ***
+#billpc       0.008656   0.075107 32.000521   0.115    0.909    
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+#Correlation of Fixed Effects:
+#       (Intr)
+#billpc -0.052
+#
+0.306/(0.306+1.983) #13% variance explained by individual effects
+
+### C. Get 95% CI around the fixed effect
+confint(tse)
+#             2.5 %    97.5 %
+#.sig01       0.4107896 0.7149314
+#.sigma       1.3637478 1.4550304
+#(Intercept)  2.3519847 2.7617097
+#billpc      -0.1381045 0.1557229
+
+```
+
+INTERPRETATION:Bill PC1 has little effect on seed extraction time. 
+
+## 6. Bite force analysis
+
+We're going to examine maximum bite force, taking the bite force with the greatest Newtons produced per individual. First, we have to account for body size, as structural body size may influence muscle mass and affect bite force.
+
+```{r}
+##### I. Run PCA on body dimensions #####
+bf<-read.csv("R61_biteforce_raw.csv")
+### A. Check structure
+str(bf) # want column 7 & 13
+
+### B. Run PCA of body dimensions (tarsus, wing)
+pcbod<-prcomp(bf[,c(7,13)], center=TRUE, scale=TRUE)
+
+
+### C. Visualize & Interpret PCA (linear assumptions) Results #######
+## i. Screeplot of PCs
+fviz_eig(pcbod)
+
+## ii. Confirm variation explained with summary
+summary(pcbod) 
+#58% variation explained w/ PC1
+#42% variation explained w/ PC2
+#PC1&2 explain 100% variation
+
+## iii. Look at the variable contributions
+# Positively correlated variables will point in the same direction & others will point in opposite directions
+fviz_pca_var(pcbod,
+             col.var = "contrib", # Color by contributions to the PC
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE     # Avoid text overlapping
+)
+
+
+## cii. Contributions of variables to PC1
+fviz_contrib(pcbod, choice = "var", axes = 1, top = 10)
+# tarsus and wing both equally contribute to PC1, with positive values suggesting larger body sizes
+
+## d. Interpret this with the variable contributions
+# Dim 1 -- (-) smaller structure
+# Dim 1 -- (+) larger structure
+
+####### 4. Output PCA results #######
+## a. Eigenvalues
+eig.val <- get_eigenvalue(pcbod)
+eig.val
+# PC1 eigen = 1.15
+# PC2 eigen = 0.85
+
+## b. Results for Variables
+res.var <- get_pca_var(pcbod)
+# Coordinates
+res.var$coord          
+# Contributions to the PCs
+res.var$contrib        
+# Quality of representation 
+res.var$cos2           
+
+## c. Results for individuals
+res.ind <- get_pca_ind(pcbod)
+# Coordinates
+res.ind$coord         
+# Contributions to the PCs
+res.ind$contrib
+# Quality of representation 
+res.ind$cos2          
+
+## d. Merge results with dataset that has island names (df = ranks)
+pcbodres<-cbind(bf,res.ind$coord[,1:2])
+str(pcbodres)
+pcbodres$bod<-pcbodres$Dim.1
+
+bfin<-subset(pcbodres,select=c("Island", "ss","bill_d","bod","bite_max"))
+
+## e. write results
+write.csv(bfin, file="bite_islands_final.csv")
+
+```
+
+Now run model..
+
+```{r}
+####### II. Run linear regression models #######
+# If need to read in data then...
+# R62_bite_islands_final.csv is a subset of bite_islands_final.csv generated from previous step. This file only includes columns relevant to analysis.
+bfin<-read.csv("R62_bite_islands_final.csv")
+
+### A. Create list of models
+final=list()
+final[[1]]<-lm(bite_max~bill_d+bod, data=bfin)
+final[[2]]<-lm(bite_max~bill_d, data=bfin)
+final[[3]]<-lm(bite_max~bod, data=bfin)
+final[[4]]<-lm(bite_max~bill_d*bod, data=bfin)
+Modnames=c("full", "bill", "bod", "int")
+## compare models just to explore
+aictab(cand.set=final, modnames=Modnames)
+# delta AICs do not differ greatly
+# we include both body size and bill depth, because we're interested in the effect of both
+# interaction has a higher AIC, so use the addition model instead
+
+bfmod<-final[[1]]
+
+### B. Examine results
+bfmod
+#Call:
+#lm(formula = bite_max ~ bill_d + bod, data = bfin)
+#
+#Coefficients:
+#(Intercept)       bill_d          bod  
+#    10.9753      -0.7375       0.2265  
+
+summary(bfmod)
+#Call:
+#lm(formula = bite_max ~ bill_d + bod, data = bfin)
+#
+#Residuals:
+#    Min      1Q  Median      3Q     Max 
+#-3.7220 -0.9448 -0.1841  0.8925  3.3839 
+#
+#Coefficients:
+#            Estimate Std. Error t value Pr(>|t|)    
+#(Intercept)  10.9753     3.0981   3.543 0.000836 ***
+#bill_d       -0.7375     0.5290  -1.394 0.169105    
+#bod           0.2265     0.1817   1.247 0.217986    
+#---
+#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+#Residual standard error: 1.412 on 53 degrees of freedom
+#Multiple R-squared:  0.05174,	Adjusted R-squared:  0.01596 
+#F-statistic: 1.446 on 2 and 53 DF,  p-value: 0.2446
+
+### 3. Check for fit of model and adherence to assumptions
+## a. Residuals v fitted = nearly straight line around 0 = GOOD, fits assumption of linear distribution
+plot(bfmod, 1)
+ols_plot_resid_fit(bfmod)
+
+## b. Normality of residuals = most along the line with a couple of outliers. Errors follow normal distribution. Strong correlation between residuals & fit.
+plot(bfmod, 2)
+ols_plot_resid_qq(bfmod)
+ols_test_normality(bfmod) # normality
+ols_test_correlation(bfmod)
+
+## c. Homoscedasticity = homogeneity of variance! Horizontal line with equally spread points; mostly horizontal
+plot(bfmod, 3)
+
+## d. Residuals v. leverage = mostly good. There are only a couple of points that have high standardized residuals, and there are many points that have a relatively high leverage (>0.02).
+plot(bfmod, 5) 
+
+### 4. Output beta coefficients 
+betasbf<-lm.beta(bfmod)
+print(betasbf) # standarized beta coefficients
+#Call:
+#lm(formula = bite_max ~ bill_d + bod, data = bfin)
+#
+#Standardized Coefficients::
+#(Intercept)      bill_d         bod 
+#  0.0000000  -0.1907888   0.1706176 
+
+summary(betasbf) # summary including these betas
+
+#lm(formula = bite_max ~ bill_d + bod, data = bfin)
+
+#Residuals:
+#    Min      1Q  Median      3Q     Max 
+#-3.7220 -0.9448 -0.1841  0.8925  3.3839 
+#
+#Coefficients:
+#            Estimate Standardized Std. Error t value Pr(>|t|)    
+#(Intercept)  10.9753       0.0000     3.0981   3.543 0.000836 ***
+#bill_d       -0.7375      -0.1908     0.5290  -1.394 0.169105    
+#bod           0.2265       0.1706     0.1817   1.247 0.217986    
+#---
+#Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#
+#Residual standard error: 1.412 on 53 degrees of freedom
+#Multiple R-squared:  0.05174,	Adjusted R-squared:  0.01596 
+#F-statistic: 1.446 on 2 and 53 DF,  p-value: 0.2446
+
+summary(czbf$bod)
+summary(mibf$bod)
+```
+

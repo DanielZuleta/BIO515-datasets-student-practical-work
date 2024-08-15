@@ -1,0 +1,436 @@
+date,observer,ss1,ss2,ss3,ss4,ss5,no_birds,island,site_name,location,grass,cbrush,fennel,lupine,sage,forbs,other,grass_rank,cbrush_rank,fennel_rank,lupine_rank,sage_rank,forbs_rank,other_rank,describe_OT
+6/5/15,"MPG, JC",663,665,null,null,null,2,RO,ro1,Soledad Cyn,D,D,A,A,T,T,A,5,5,1,1,2,2,1,null
+6/5/15,"MPG, JC",664,666,null,null,null,2,RO,ro2,Soledad Cyn,D,D,A,A,S,T,T,5,5,1,1,3,2,2,bare soil
+6/5/15,"MPG, JC",667,null,null,null,null,1,RO,ro3,Soledad Cyn,D,P,A,A,T,A,T,5,4,1,1,2,1,2,null
+6/10/15,JC,444,465,null,null,null,2,RO,ro4,Carrington Loop,D,S,A,A,T,T,A,5,3,1,1,2,2,1,null
+6/10/15,JC,445,446,447,null,null,3,RO,ro5,Carrington Loop,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/10/15,JC,443,null,null,null,null,1,RO,ro6,Carrington Loop,D,P,A,T,T,T,A,5,4,1,2,2,2,1,null
+6/10/15,JC,442,null,null,null,null,1,RO,ro7,Carrington Loop,D,P,S,S,S,T,A,5,4,3,3,3,2,1,null
+6/10/15,JC,439,440,441,null,null,3,RO,ro8,Windmill Cyn,D,S,A,A,T,T,A,5,3,1,1,2,2,1,null
+6/10/15,JC,435,436,null,null,null,2,RO,ro9,Windmill Cyn,S,S,A,A,D,S,A,3,3,1,1,5,3,1,SO: sage
+6/10/15,JC,437,438,null,null,null,2,RO,ro10,Windmill Cyn,D,S,A,A,P,S,A,5,3,1,1,4,3,1,SO: sage
+6/10/15,JC,418,null,null,null,null,1,RO,ro11,Ranch/CG/RS,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/10/15,JC,434,null,null,null,null,1,RO,ro12,Ranch/CG/RS,P,D,A,A,S,T,A,4,5,1,1,3,2,1,null
+6/10/15,JC,227,228,null,null,null,2,RO,ro13,Ranch/CG/RS,S,S,A,A,S,D,S,3,3,1,1,3,5,3,RO: Willow
+6/10/15,JC,226,null,null,null,null,1,RO,ro14,Ranch/CG/RS,D,P,T,A,T,T,A,5,4,2,1,2,2,1,null
+6/10/15,JC,230,229,null,null,null,2,RO,ro15,Ranch/CG/RS,D,T,A,A,A,T,A,5,2,1,1,1,2,1,null
+6/10/15,JC,235,null,null,null,null,1,RO,ro16,Ranch/CG/RS,D,P,A,A,A,T,T,5,4,1,1,1,2,2,TO: bare soil
+6/10/15,JC,236,null,null,null,null,1,RO,ro17,Ranch/CG/RS,P,S,A,A,A,D,S,4,3,1,1,1,5,3,SO: bare soil
+6/10/15,JC,237,null,null,null,null,1,RO,ro18,Ranch/CG/RS,D,D,A,A,A,P,S,5,5,1,1,1,4,3,SO: bare soil
+6/10/15,JC,246,null,null,null,null,1,RO,ro19,Ranch/CG/RS,D,D,A,A,A,P,S,5,5,1,1,1,4,3,SO: bare soil
+6/5/15,"MPG, JC",460,461,462,null,null,3,RO,ro20,Dry Canyon,D,S,A,T,P,T,T,5,3,1,2,4,2,2,OT: bare ground
+6/5/15,"MPG, JC",463,null,null,null,null,1,RO,ro21,Dry Canyon,D,D,A,T,T,T,T,5,5,1,2,2,2,2,plateau above canyon
+6/6/15,"MPG, JC",426,null,null,null,null,1,RO,ro22,Green Canyon,D,T,A,A,T,T,P,5,2,1,1,2,2,4,"OT: road, bare rock, cliff face"
+6/6/15,"MPG, JC",427,null,null,null,null,1,RO,ro23,Green Canyon,P,D,A,A,S,T,A,4,5,1,1,3,2,1,null
+6/5/15,"MPG, JC",428,null,null,null,null,1,RO,ro24,Green Canyon,D,S,A,A,S,T,A,5,3,1,1,3,2,1,null
+6/6/15,"MPG, JC",429,null,null,null,null,1,RO,ro25,Green Canyon,P,D,A,A,D,T,T,4,5,1,1,5,2,2,OT: bare soil
+6/6/15,"MPG, JC",430,null,null,null,null,1,RO,ro26,Green Canyon,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/6/15,"MPG, JC",431,null,null,null,null,1,RO,ro27,Green Canyon,D,P,A,A,A,T,T,5,4,1,1,1,2,2,OT: road
+6/6/15,"MPG, JC",432,null,null,null,null,1,RO,ro28,Green Canyon,P,P,A,A,T,T,A,4,4,1,1,2,2,1,null
+6/6/15,"MPG, JC",433,null,null,null,null,1,RO,ro29,Green Canyon,P,P,A,A,A,T,T,4,4,1,1,1,2,2,"OT: road, cliff face"
+6/10/15,MPG,414,415,416,null,null,3,RO,ro30,Water Canyon,D,S,T,A,A,S,T,5,3,2,1,1,3,2,"OT: bare ground, rock"
+6/10/15,MPG,417,null,null,null,null,1,RO,ro31,Water Canyon,D,S,A,T,A,T,A,5,3,1,2,1,2,1,null
+6/10/15,MPG,???,null,null,null,null,1,RO,ro32,Water Canyon,D,P,A,T,A,T,T,5,4,1,2,1,2,2,OT: bare rock
+6/7/15,MPG,589,590,null,null,null,2,RO,ro33,Army Camp,D,P,A,A,A,T,T,5,4,1,1,1,2,2,null
+6/7/15,MPG,591,592,null,null,null,2,RO,ro34,Army Camp,D,S,A,A,T,T,A,5,3,1,1,2,2,1,null
+6/7/15,MPG,595,607,null,null,null,2,RO,ro35,Johnson's Lee,P,T,A,A,P,T,S,4,2,1,1,4,2,3,"OT: sage, OT: bare ground/gravel/road"
+6/7/15,MPG,609,null,null,null,null,1,RO,ro36,Johnson's Lee,D,A,A,A,P,T,A,5,1,1,1,4,2,1,OT hab: Sage
+6/8/15,"MPG, JC",643,644,null,null,null,2,RO,ro37,Wreck,D,T,A,A,P,T,A,5,2,1,1,4,2,1,SO: sage
+6/8/15,"MPG, JC",645,null,null,null,null,1,RO,ro38,Wreck,D,T,A,A,S,T,A,5,2,1,1,3,2,1,SO: sage
+6/8/15,"MPG, JC",646,647,null,null,null,2,RO,ro39,Wreck,S,T,A,A,D,S,P,3,2,1,1,5,3,4,SO: sage
+6/8/15,"MPG, JC",648,649,null,null,null,2,RO,ro40,Wreck,D,T,A,A,D,T,T,5,2,1,1,5,2,2,SO: sage
+6/7/15,MPG,425,null,null,null,null,1,RO,ro41,Box Cyn,D,P,A,A,A,T,T,5,4,1,1,1,2,2,OT: bare ground/road
+6/7/15,MPG,423,null,null,null,null,1,RO,ro42,Box Cyn,D,S,A,A,A,T,T,5,3,1,1,1,2,2,OT: bare ground/road
+6/7/15,MPG,422,null,null,null,null,1,RO,ro43,Box Cyn,D,P,A,A,T,T,T,5,4,1,1,2,2,2,OT: bare ground/road
+6/7/15,MPG,459,473,null,null,null,2,RO,ro44,Quemada,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/7/15,MPG,479,null,null,null,null,1,RO,ro45,Quemada,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/7/15,MPG,454,455,null,null,null,2,RO,ro46,East Pt,P,D,A,A,A,P,A,4,5,1,1,1,4,1,null
+6/7/15,MPG,453,null,null,null,null,1,RO,ro47,East Pt,P,D,A,A,S,S,A,4,5,1,1,3,3,1,null
+6/7/15,MPG,449,450,null,null,null,2,RO,ro48,East Pt,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/7/15,MPG,420,null,null,null,null,1,RO,ro49,Box Cyn,D,P,A,A,T,T,A,5,4,1,1,2,2,1,null
+6/7/15,MPG,419,null,null,null,null,1,RO,ro50,Box Cyn,P,S,A,A,T,S,P,4,3,1,1,2,3,4,"iceplant, road, cliff face"
+6/12/15,"MPG, JC",629,630,null,null,null,2,RO,ro51,Tecolote Cyn,D,P,A,A,S,T,A,5,4,1,1,3,2,1,null
+6/12/15,"MPG, JC",632,null,null,null,null,1,RO,ro52,Tecolote Cyn,D,S,A,A,T,T,A,5,3,1,1,2,2,1,null
+6/12/15,"MPG, JC",633,null,null,null,null,1,RO,ro53,Tecolote Cyn,P,S,A,A,S,T,P,4,3,1,1,3,2,4,"OT: bare ground, rock, cliff face"
+6/12/15,"MPG, JC",634,635,null,null,null,2,RO,ro54,Tecolote Cyn,D,P,A,A,P,T,A,5,4,1,1,4,2,1,null
+6/12/15,"MPG, JC",572,574,null,null,null,2,RO,ro55,Camp Rd,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/12/15,"MPG, JC",573,575,576,null,null,3,RO,ro56,Camp Rd,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/12/15,"MPG, JC",577,578,null,null,null,2,RO,ro57,Camp Rd,D,D,A,A,A,S,T,5,5,1,1,1,3,2,OT: bare ground
+6/12/15,"MPG, JC",579,null,null,null,null,1,RO,ro58,Camp Rd,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/12/15,"MPG, JC",580,null,null,null,null,1,RO,ro59,Camp Rd,D,S,A,A,A,T,A,5,3,1,1,1,2,1,OT: bare ground/cliff
+6/12/15,"MPG, JC",581,null,null,null,null,1,RO,ro60,Camp Rd,D,S,A,A,A,T,S,5,3,1,1,1,2,3,null
+6/12/15,"MPG, JC",582,583,null,null,null,2,RO,ro61,Camp Rd,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/12/15,"MPG, JC",613,614,615,616,null,4,RO,ro62,Signal Rd,D,P,A,A,A,T,A,5,4,1,1,1,2,1,OT: road/bare ground
+6/12/15,"MPG, JC",617,618,null,null,null,2,RO,ro63,Signal Rd,D,D,A,A,A,T,T,5,5,1,1,1,2,2,OT: road/bare ground
+6/12/15,"MPG, JC",619,null,null,null,null,1,RO,ro64,Signal Rd,D,P,A,A,T,T,T,5,4,1,1,2,2,2,OT: road/bare ground
+6/12/15,"MPG, JC",620,null,null,null,null,1,RO,ro65,Signal Rd,D,D,A,A,A,T,S,5,5,1,1,1,2,3,TO: bare rock
+6/12/15,"MPG, JC",621,null,null,null,null,1,RO,ro66,Signal Rd,D,D,A,A,T,T,T,5,5,1,1,2,2,2,null
+6/12/15,"MPG, JC",622,null,null,null,null,1,RO,ro67,Signal Rd,P,P,A,A,T,S,T,4,4,1,1,2,3,2,"OT: bare ground, typha (creek)"
+6/12/15,"MPG, JC",623,624,null,null,null,2,RO,ro68,Signal Rd,D,D,A,A,A,T,S,5,5,1,1,1,2,3,OT: bare ground/road
+6/5/15,"MPG, JC",660,661,null,null,null,2,RO,ro69,Soledad Cyn,D,S,A,A,S,T,P,5,3,1,1,3,2,4,"rock, bare soil, water"
+6/8/15,MPG,675,null,null,null,null,1,RO,ro70,Wreck Rd,D,T,A,A,S,T,T,5,2,1,1,3,2,2,OT: Typha
+6/10/15,MPG,212,213,null,null,null,2,RO,ro71,Ranch/CG/RS,D,S,A,T,P,S,P,5,3,1,2,4,3,4,"OT: bare ground, rocks, salix"
+6/10/15,MPG,214,215,null,null,null,2,RO,ro72,Ranch/CG/RS,D,S,A,T,S,T,S,5,3,1,2,3,2,3,OT: road
+6/10/15,MPG,216,null,null,null,null,1,RO,ro73,Ranch/CG/RS,P,S,A,T,S,S,S,4,3,1,2,3,3,3,"OT: bare ground, lemonade berry, rock"
+6/10/15,MPG,217,null,null,null,null,1,RO,ro74,Ranch/CG/RS,D,S,A,P,T,S,S,5,3,1,4,2,3,3,OT: bare ground/road
+6/10/15,MPG,218,221,null,null,null,2,RO,ro75,Ranch/CG/RS,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/10/15,MPG,219,null,null,null,null,1,RO,ro76,Ranch/CG/RS,D,S,A,A,T,T,P,5,3,1,1,2,2,4,OT: bare ground/road
+6/10/15,MPG,220,null,null,null,null,1,RO,ro77,Ranch/CG/RS,D,T,A,A,A,T,A,5,2,1,1,1,2,1,null
+6/10/15,MPG,222,223,null,null,null,2,RO,ro78,Ranch/CG/RS,D,S,A,A,A,T,T,5,3,1,1,1,2,2,OT: road
+6/4/15,MPG,596,598,null,null,null,2,RO,ro79,Arlington Cyn,D,P,A,A,T,T,A,5,4,1,1,2,2,1,null
+6/4/15,MPG,597,599,null,null,null,2,RO,ro80,Arlington Cyn,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/4/15,MPG,600,602,null,null,null,2,RO,ro81,Arlington Cyn,D,P,A,T,A,T,T,5,4,1,2,1,2,2,OT: bare/sandy
+6/4/15,MPG,601,603,604,null,null,3,RO,ro82,Arlington Cyn,D,S,A,T,A,T,T,5,3,1,2,1,2,2,OT: bare/sandy
+6/4/15,MPG,605,null,null,null,null,1,RO,ro83,Arlington Cyn,D,S,A,T,A,T,A,5,3,1,2,1,2,1,null
+6/4/15,MPG,636,637,638,639,null,4,RO,ro84,Arlington Cyn,D,P,A,T,T,S,P,5,4,1,2,2,3,4,"OT PV: Horsetail/%OT: Salix, Horsetail"
+6/4/15,MPG,640,641,null,null,null,2,RO,ro85,Arlington Cyn,D,D,A,T,T,T,T,5,5,1,2,2,2,2,%OT: Horsetail
+6/4/15,MPG,642,null,null,null,null,1,RO,ro86,Arlington Cyn,P,P,A,T,S,T,T,4,4,1,2,3,2,2,OT: bare ground
+6/12/15,MPG,625,626,627,null,null,3,RO,ro87,Tecolote Cyn,D,T,A,A,S,S,S,5,2,1,1,3,3,3,"OT: bare ground/road, Typha and misc. wetland veg"
+6/12/15,MPG,628,631,null,null,null,2,RO,ro88,Tecolote Cyn,D,S,A,A,T,T,T,5,3,1,1,2,2,2,OT: Typha and wetland veg
+6/10/15,MPG,224,null,null,null,null,1,RO,ro89,Ranch/CG/RS,D,S,A,T,A,S,A,5,3,1,2,1,3,1,null
+6/10/15,MPG,225,null,null,null,null,1,RO,ro90,Ranch/CG/RS,D,S,A,T,A,S,A,5,3,1,2,1,3,1,null
+6/10/15,MPG,238,240,null,null,null,2,RO,ro91,Ranch/CG/RS,D,S,A,A,T,T,T,5,3,1,1,2,2,2,OT: bare ground/road
+6/10/15,MPG,239,241,242,null,null,3,RO,ro92,Ranch/CG/RS,S,D,A,A,D,T,T,3,5,1,1,5,2,2,OT: bare ground/road
+6/10/15,MPG,243,null,null,null,null,1,RO,ro93,Ranch/CG/RS,D,S,A,A,A,T,A,5,3,1,1,1,2,1,null
+6/10/15,MPG,244,null,null,null,null,1,RO,ro94,Ranch/CG/RS,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/10/15,MPG,245,null,null,null,null,1,RO,ro95,Ranch/CG/RS,P,T,A,T,P,S,P,4,2,1,2,4,3,4,"OT: sage, %OT: bare ground/rock"
+6/10/15,MPG,247,null,null,null,null,1,RO,ro96,Ranch/CG/RS,D,S,A,A,T,S,T,5,3,1,1,2,3,2,OT: bare ground
+6/10/15,MPG,404,null,null,null,null,1,RO,ro97,Water Cyn,D,S,A,A,T,S,T,5,3,1,1,2,3,2,"OT: bare ground, road"
+6/10/15,MPG,411,412,413,null,null,3,RO,ro98,Water Cyn,D,D,A,A,A,S,A,5,5,1,1,1,3,1,SO: sage
+6/7/15,JC,424,null,null,null,null,1,RO,ro99,Box Cyn,D,T,A,T,D,T,T,5,2,1,2,5,2,2,null
+6/7/15,JC,421,null,null,null,null,1,RO,ro100,Box Cyn,D,D,A,A,T,T,A,5,5,1,1,2,2,1,null
+6/7/15,JC,475,474,null,null,null,2,RO,ro101,Quemada,D,S,A,T,T,S,T,5,3,1,2,2,3,2,null
+6/7/15,JC,476,477,null,null,null,2,RO,ro102,Quemada,D,D,A,T,T,T,A,5,5,1,2,2,2,1,null
+6/7/15,JC,478,null,null,null,null,1,RO,ro103,Quemada,D,S,A,A,T,T,A,5,3,1,1,2,2,1,null
+6/7/15,"JC, MPG",456,null,null,null,null,1,RO,ro104,East Pt,P,D,A,A,P,T,A,4,5,1,1,4,2,1,null
+6/7/15,"JC, MPG",457,458,null,null,null,2,RO,ro105,East Pt,P,D,A,A,P,T,A,4,5,1,1,4,2,1,null
+6/7/15,"JC, MPG",452,null,null,null,null,1,RO,ro106,East Pt,P,P,A,A,A,T,T,4,4,1,1,1,2,2,OT: road
+6/7/15,"JC, MPG",451,null,null,null,null,1,RO,ro107,East Pt,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/7/15,JC,448,null,null,null,null,1,RO,ro108,East Pt,D,S,A,A,T,T,A,5,3,1,1,2,2,1,null
+6/7/15,JC,584,null,null,null,null,1,RO,ro109,Army Camp,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/7/15,JC,585,586,null,null,null,2,RO,ro110,Army Camp,D,P,A,A,A,P,A,5,4,1,1,1,4,1,null
+6/7/15,JC,587,588,null,null,null,2,RO,ro111,Army Camp,D,P,A,A,A,P,T,5,4,1,1,1,4,2,SM: prominent riparian
+6/7/15,JC,593,594,null,null,null,2,RO,ro112,Army Camp,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/7/15,JC,606,null,null,null,null,1,RO,ro113,Johnson's Lee,P,S,A,A,D,T,T,4,3,1,1,5,2,2,SO: Sage
+6/7/15,JC,608,null,null,null,null,1,RO,ro114,Johnson's Lee,D,T,A,A,S,A,T,5,2,1,1,3,1,2,SO: Sage
+6/7/15,"JC, MPG",610,611,612,null,null,3,RO,ro115,Johnson's Lee,D,P,A,A,P,T,T,5,4,1,1,4,2,2,OT: bare ground/road
+6/8/15,JC,671,672,null,null,null,2,RO,ro116,Wreck Rd,D,P,A,T,A,T,T,5,4,1,2,1,2,2,OT: bare soil
+6/8/15,JC,673,674,null,null,null,2,RO,ro117,Wreck Rd,S,D,A,T,T,T,S,3,5,1,2,2,2,3,OT: bare soil
+6/8/15,JC,676,677,null,null,null,2,RO,ro118,Wreck Rd,P,S,A,T,D,T,A,4,3,1,2,5,2,1,null
+6/6/15,"JC, MPG",408,null,null,null,null,1,RO,ro119,Lobo Cyn,S,S,A,T,S,S,D,3,3,1,2,3,3,5,RO: salix
+6/5/15,"JC, MPG",663,665,null,null,null,2,RO,ro120,Soledad Cyn,D,D,A,A,T,T,A,5,5,1,1,2,2,1,null
+6/5/15,"JC, MPG",664,666,null,null,null,2,RO,ro121,Soledad Cyn,D,D,A,A,S,T,T,5,5,1,1,3,2,2,%OT: bare soil
+6/5/15,"JC, MPG",667,null,null,null,null,1,RO,ro122,Soledad Cyn,D,P,A,A,T,A,T,5,4,1,1,2,1,2,null
+6/6/15,"JC, MPG",668,null,null,null,null,1,RO,ro123,Lobo Cyn,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/6/15,"JC, MPG",670,null,null,null,null,1,RO,ro124,Lobo Cyn,S,D,A,A,T,T,A,3,5,1,1,2,2,1,null
+6/6/15,"JC, MPG",669,null,null,null,null,1,RO,ro125,Lobo Cyn,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/6/15,"JC, MPG",464,466,null,null,null,2,RO,ro126,Green Canyon,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+6/6/15,"JC, MPG",465,null,null,null,null,1,RO,ro127,Green Canyon,D,D,A,A,A,T,T,5,5,1,1,1,2,2,OT: bare ground
+6/6/15,"JC, MPG",467,null,null,null,null,1,RO,ro128,Green Canyon,D,D,A,A,T,T,T,5,5,1,1,2,2,2,null
+6/6/15,"JC, MPG",468,null,null,null,null,1,RO,ro129,Green Canyon,D,D,A,A,T,T,A,5,5,1,1,2,2,1,null
+6/6/15,"JC, MPG",469,470,null,null,null,2,RO,ro130,Green Canyon,D,D,A,A,T,T,T,5,5,1,1,2,2,2,"OT: cliff face, bare rock"
+6/6/15,"JC, MPG",405,406,null,null,null,2,RO,ro131,Lobo Cyn,D,D,A,S,S,T,T,5,5,1,3,3,2,2,OT: road
+6/6/15,"JC, MPG",407,null,null,null,null,1,RO,ro132,Lobo Cyn,T,T,A,A,D,S,P,2,2,1,1,5,3,4,"typha, salix"
+6/6/15,"JC, MPG",410,null,null,null,null,1,RO,ro133,Lobo Cyn,T,T,A,A,T,T,P,2,2,1,1,2,2,4,"OP: reeds, typha, salix"
+6/6/15,"JC, MPG",409,null,null,null,null,1,RO,ro134,Lobo Cyn,D,D,A,A,T,T,A,5,5,1,1,2,2,1,RO: grass
+6/17/15,"JC, MPG",683,684,null,null,null,2,CZ,cz220,Smugglers Tr,D,T,A,A,A,T,T,5,2,1,1,1,2,2,OT: road
+6/17/15,"JC, MPG",685,null,null,null,null,1,CZ,cz221,Smugglers Tr,D,T,A,A,A,T,T,5,2,1,1,1,2,2,OT: island cherry
+6/17/15,"JC, MPG",686,687,null,null,null,2,CZ,cz222,Scorpion Canyon,D,T,A,A,A,T,A,5,2,1,1,1,2,1,null
+6/18/15,"JC, MPG",690,null,null,null,null,1,CZ,cz223,Potato Harbor Tr,D,A,A,A,A,S,S,5,1,1,1,1,3,3,"OT hab: BW; %OT: morning glory, bare road"
+6/18/15,"JC, MPG",689,null,null,null,null,1,CZ,cz224,Potato Harbor Tr,D,A,T,A,P,S,T,5,1,2,1,4,3,2,OT hab: SA; %OT: Coreopsis
+6/18/15,"JC, MPG",688,null,null,null,null,1,CZ,cz225,Potato Harbor Tr,D,S,A,A,T,S,s,5,3,1,1,2,3,3,"OT hab: BW, CB, lemonadeberry; %OT: lemonadeberry, bare ground/road"
+6/11/15,"JC, MPG",680,null,null,null,null,1,RO,ro141,Main/Lopez,D,D,A,T,S,T,T,5,5,1,2,3,2,2,TO: bare soil
+6/11/15,"JC, MPG",681,682,null,null,null,2,RO,ro142,Main/Lopez,D,S,A,T,D,T,A,5,3,1,2,5,2,1,null
+6/11/15,"JC, MPG",678,679,null,null,null,2,RO,ro143,Main/Lopez,P,D,A,A,A,T,S,4,5,1,1,1,2,3,SO: bare soil and road
+6/13/15,MPG,650,651,null,null,null,2,RO,ro144,Quemada Rd,D,P,A,A,A,A,T,5,4,1,1,1,1,2,OT: bare ground
+6/13/15,MPG,652,653,654,655,656,5,RO,ro145,Quemada Rd,D,P,A,A,T,T,A,5,4,1,1,2,2,1,null
+6/13/15,MPG,657,null,null,null,null,1,RO,ro146,Quemada Rd,D,S,A,A,P,T,A,5,3,1,1,4,2,1,null
+6/13/15,MPG,658,null,null,null,null,1,RO,ro147,Quemada Rd,P,P,A,A,D,S,T,4,4,1,1,5,3,2,null
+6/13/15,MPG,659,660,null,null,null,2,RO,ro148,Quemada Rd,D,P,A,T,P,S,A,5,4,1,2,4,3,1,null
+6/16/15,"JC, MPG",322,null,null,null,null,1,CZ,cz1,Scorpion CG,D,P,A,A,A,T,T,5,4,1,1,1,2,2,"%OT: BW, lemonadeberry"
+6/16/15,"JC, MPG",323,324,null,null,null,2,CZ,cz2,Scorpion CG,D,S,A,T,T,T,P,5,3,1,2,2,2,4,"OT PV: lemonade berry; %OT: lemonadeberry, toyon, morning glory"
+6/16/15,"JC, MPG",325,null,null,null,null,1,CZ,cz3,Scorpion CG,D,P,A,A,A,T,S,5,4,1,1,1,2,3,"%OT: Salix, lemonade berry"
+6/16/15,"JC, MPG",328,329,null,null,null,2,CZ,cz4,Scorpion CG,D,P,A,A,A,T,T,5,4,1,1,1,2,2,"%OT: toyon, BW"
+6/16/15,"JC, MPG",326,327,null,null,null,2,CZ,cz5,Scorpion CG,D,P,A,A,A,T,P,5,4,1,1,1,2,4,OT PV: lemonade berry; %OT: lemonadeberry
+6/16/15,"JC, MPG",330,null,null,null,null,1,CZ,cz6,Scorpion CG,D,S,T,A,A,T,T,5,3,2,1,1,2,2,%OT: Sugarbush
+6/16/15,"JC, MPG",331,null,null,null,null,1,CZ,cz7,Scorpion Beach,D,S,A,A,A,S,T,5,3,1,1,1,3,2,"%OT: Morning glory, misc trees"
+6/16/15,"JC, MPG",332,null,null,null,null,1,CZ,cz8,Scorpion Beach,P,S,A,A,A,T,D,4,3,1,1,1,2,5,OT PV/%OT: lemonade berry
+6/20/15,JC,271,null,null,null,null,1,CZ,cz9,Navy Rd,P,T,D,A,T,T,T,4,2,5,1,2,2,2,%OT: road
+6/20/15,JC,275,276,null,null,null,2,CZ,cz10,Navy Rd,P,S,D,A,S,T,T,4,3,5,1,3,2,2,%OT: bare soil
+6/20/15,JC,277,null,null,null,null,1,CZ,cz11,Navy Rd,P,T,D,A,A,T,T,4,2,5,1,1,2,2,%OT: road
+6/20/15,JC,278,279,null,null,null,2,CZ,cz12,Navy Rd,P,T,D,A,T,T,A,4,2,5,1,2,2,1,null
+6/20/15,JC,311,null,null,null,null,1,CZ,cz13,Navy Rd,S,D,D,A,T,S,S,3,5,5,1,2,3,3,%MS: toyon and lemonade berry
+6/20/15,JC,313,null,null,null,null,1,CZ,cz14,Navy Rd,P,T,D,A,P,S,T,4,2,5,1,4,3,2,%MS: lemonade berry/BW %TO: bare soil
+6/20/15,JC,319,320,null,null,null,2,CZ,cz15,East Rd,P,T,D,A,T,T,A,4,2,5,1,2,2,1,null
+6/20/15,JC,333,null,null,null,null,1,CZ,cz16,East End Rd,D,A,T,A,S,T,S,5,1,2,1,3,2,3,"%SO: BW, MG, deerweed"
+6/20/15,JC,341,null,null,null,null,1,CZ,cz17,East End Rd,T,S,S,T,D,S,S,2,3,3,2,5,3,3,"%OS: bare rock, steep slopes on both sides, %OS: lemonade berry, deerweed, BW, toyon"
+6/20/15,JC,387,null,null,null,null,1,CZ,cz18,Montanon,D,D,A,A,A,T,A,5,5,1,1,1,2,1,%M: deerwood
+6/20/15,JC,389,null,null,null,null,1,CZ,cz19,Montanon,D,P,A,T,A,A,A,5,4,1,2,1,1,1,null
+6/20/15,JC,388,null,null,null,null,1,CZ,cz20,Montanon,D,S,T,A,S,S,A,5,3,2,1,3,3,1,null
+6/20/15,"JC, MPG",135,null,null,null,null,1,CZ,cz21,Ridge,D,A,P,A,A,A,S,5,1,4,1,1,1,3,Fennel dead/dry
+6/21/15,JC,96,null,null,null,null,1,CZ,cz22,E of Fox Pens,D,A,D,A,A,T,A,5,1,5,1,1,2,1,null
+6/21/15,JC,97,98,null,null,null,2,CZ,cz23,E of Fox Pens,D,A,D,A,A,T,T,5,1,5,1,1,2,2,TO: lemonade berry
+6/21/15,JC,99,null,null,null,null,1,CZ,cz24,E of Fox Pens,D,A,D,A,A,T,A,5,1,5,1,1,2,1,null
+6/21/15,JC,100,101,102,null,null,3,CZ,cz25,E of Fox Pens,D,A,D,A,A,T,A,5,1,5,1,1,2,1,%DT: mule fat
+6/21/15,JC,281,null,null,null,null,1,CZ,cz26,Dump,S,T,D,A,A,T,A,3,2,5,1,1,2,1,null
+6/21/15,JC,211,null,null,null,null,1,CZ,cz27,Rd to Coches,D,T,D,A,A,S,T,5,2,5,1,1,3,2,%TO: road
+6/21/15,JC,81,84,null,null,null,2,CZ,cz28,Main Ranch,D,A,D,A,A,T,A,5,1,5,1,1,2,1,BW
+6/21/15,JC,82,null,null,null,null,1,CZ,cz29,Main Ranch,D,A,D,A,A,T,A,5,1,5,1,1,2,1,prickly pear cactus
+6/21/15,JC,83,null,null,null,null,1,CZ,cz30,Main Ranch,P,A,P,A,A,P,T,4,1,4,1,1,4,2,mule fat and FE
+6/21/15,JC,77,null,null,null,null,1,CZ,cz31,Main Ranch,D,A,D,A,A,A,A,5,1,5,1,1,1,1,null
+6/21/15,JC,78,null,null,null,null,1,CZ,cz32,Main Ranch,D,A,D,A,A,T,A,5,1,5,1,1,2,1,null
+6/21/15,JC,79,80,null,null,null,2,CZ,cz33,Main Ranch,D,A,D,A,A,T,A,5,1,5,1,1,2,1,BW
+6/21/15,JC,104,null,null,null,null,1,CZ,cz34,E of Fox Pens,D,A,D,A,A,S,T,5,1,5,1,1,3,2,FE/Mule fat
+6/21/15,JC,373,null,null,null,null,1,CZ,cz35,Cabins,D,A,D,A,A,S,A,5,1,5,1,1,3,1,lemonade berry and monkeyflower
+6/21/15,JC,174,175,null,null,null,2,CZ,cz36,Creek,S,A,D,T,A,P,S,3,1,5,2,1,4,3,"FE, cherry, mule fat"
+6/21/15,JC,176,null,null,null,null,1,CZ,cz37,Upslope of Creek,D,A,D,A,A,A,A,5,1,5,1,1,1,1,null
+6/21/15,JC,177,null,null,null,null,1,CZ,cz38,Upslope of Creek,S,S,D,A,A,T,A,3,3,5,1,1,2,1,null
+6/21/15,JC,173,null,null,null,null,1,CZ,cz39,Upslope of Creek,D,T,P,A,A,S,T,5,2,4,1,1,3,2,%M: BW
+6/21/15,JC,70,71,null,null,null,2,CZ,cz40,Field Station,T,T,D,A,A,T,A,2,2,5,1,1,2,1,null
+6/21/15,JC,73,null,null,null,null,1,CZ,cz41,Field Station,D,T,D,A,A,T,A,5,2,5,1,1,2,1,toyon
+6/21/15,JC,72,null,null,null,null,1,CZ,cz42,Field Station,S,T,D,A,A,T,A,3,2,5,1,1,2,1,null
+6/21/15,JC,210,null,null,null,null,1,CZ,cz43,End of Jay Plot,P,D,T,A,A,P,A,4,5,2,1,1,4,1,null
+6/21/15,JC,260,262,null,null,null,2,CZ,cz44,Brian's,D,T,D,A,A,S,T,5,2,5,1,1,3,2,toyon and other tree
+6/21/15,JC,336,337,null,null,null,2,CZ,cz45,Dog Pens,S,A,A,T,T,D,S,3,1,1,2,2,5,3,mule fat
+6/21/15,JC,338,null,null,null,null,1,CZ,cz46,Dog Pens,D,T,A,A,S,T,T,5,2,1,1,3,2,2,"toyon, morning glory (T)"
+6/21/15,JC,339,340,null,null,null,2,CZ,cz47,Field Station,S,S,A,A,A,P,T,3,3,1,1,1,4,2,"lemonade berry, mule fat, cherry, CB"
+6/22/15,JC,187,null,null,null,null,1,CZ,cz48,Dump,P,S,D,A,A,T,A,4,3,5,1,1,2,1,morning glory
+6/22/15,JC,188,null,null,null,null,1,CZ,cz49,Dump,P,T,D,A,A,T,A,4,2,5,1,1,2,1,mule fat
+6/22/15,JC,189,null,null,null,null,1,CZ,cz50,Dump,P,P,P,A,A,A,A,4,4,4,1,1,1,1,CB/FE
+6/22/15,JC,190,null,null,null,null,1,CZ,cz51,Dump,D,S,D,A,A,T,T,5,3,5,1,1,2,2,%OT: bare soil
+6/22/15,JC,191,null,null,null,null,1,CZ,cz52,Dump,P,T,D,A,A,T,A,4,2,5,1,1,2,1,null
+6/22/15,JC,204,null,null,null,null,1,CZ,cz53,Eucs by Coches,D,S,S,A,A,P,P,5,3,3,1,1,4,4,"FE, LB, cherry, eucs"
+6/22/15,JC,205,null,null,null,null,1,CZ,cz54,End of Jay Plot,P,P,T,A,A,P,A,4,4,2,1,1,4,1,null
+6/22/15,JC,206,null,null,null,null,1,CZ,cz55,Dump,D,T,D,A,A,T,A,5,2,5,1,1,2,1,null
+6/22/15,JC,207,null,null,null,null,1,CZ,cz56,End of Jay Plot,D,T,T,A,A,S,A,5,2,2,1,1,3,1,mule fat
+6/22/15,JC,208,null,null,null,null,1,CZ,cz57,Dump,T,D,S,A,A,P,T,2,5,3,1,1,4,2,"oak, eucs, poison oak"
+6/23/15,MPG,378,null,null,null,null,1,CZ,cz58,Willows,P,S,A,T,T,T,P,4,3,1,2,2,2,4,"%OT: bare ground/road, red berry, oak, ceonothus"
+6/23/15,MPG,379,null,null,null,null,1,CZ,cz59,Willows,S,S,A,T,S,S,D,3,3,1,2,3,3,5,"%OT: bare ground/rock, mule fat, toyon, ceonothus"
+6/23/15,MPG,386,null,null,null,null,1,CZ,cz60,Willows,T,T,A,T,T,P,P,2,2,1,2,2,4,4,"oak, BW, CB"
+6/22/15,JC,263,null,null,null,null,1,CZ,cz61,FS Road,P,P,D,A,A,T,S,4,4,5,1,1,2,3,CB/FE
+6/22/15,JC,264,265,null,null,null,2,CZ,cz62,FS Road,D,T,D,A,A,T,T,5,2,5,1,1,2,2,lemonberry
+6/22/15,JC,74,null,null,null,null,1,CZ,cz63,Main Ranch,D,A,P,A,A,T,T,5,1,4,1,1,2,2,%TO: road
+6/22/15,JC,75,null,null,null,null,1,CZ,cz64,Main Ranch,D,A,D,A,A,T,T,5,1,5,1,1,2,2,%TO: road
+6/22/15,JC,76,null,null,null,null,1,CZ,cz65,Main Ranch,D,A,D,A,A,T,A,5,1,5,1,1,2,1,null
+6/22/15,JC,110,null,null,null,null,1,CZ,cz66,Cascada,D,T,A,T,T,T,S,5,2,1,2,2,2,3,morning glory (T)
+6/22/15,JC,116,null,null,null,null,1,CZ,cz67,Main Ranch,D,T,D,A,A,S,A,5,2,5,1,1,3,1,"FE, LB, toyon (%M)"
+6/22/15,JC,122,null,null,null,null,1,CZ,cz68,Cascada,T,T,T,T,T,T,D,2,2,2,2,2,2,5,"mule fat, BW, Lupin, SA"
+6/22/15,JC,123,124,null,null,null,2,CZ,cz69,Cascada,S,A,A,T,T,D,T,3,1,1,2,2,5,2,"BW,MF"
+6/22/15,JC,172,null,null,null,null,1,CZ,cz70,Upslope of Creek,D,A,D,A,A,T,A,5,1,5,1,1,2,1,null
+6/22/15,JC,184,null,null,null,null,1,CZ,cz71,Dump,P,D,P,A,A,T,T,4,5,4,1,1,2,2,%TO: road
+6/22/15,JC,185,null,null,null,null,1,CZ,cz72,Dump,P,T,P,A,A,T,A,4,2,4,1,1,2,1,null
+6/23/15,JC,105,null,null,null,null,1,CZ,cz73,PZ,D,P,T,A,A,T,T,5,4,2,1,1,2,2,null
+6/23/15,JC,106,107,108,112,null,4,CZ,cz74,PZ,D,P,P,A,A,T,T,5,4,4,1,1,2,2,"CB/FE, Morning glory (T)"
+6/23/15,JC,109,null,null,null,null,1,CZ,cz75,PZ,D,D,S,A,A,S,S,5,5,3,1,1,3,3,"cherry, oak, MG (T)"
+6/23/15,JC,113,null,null,null,null,1,CZ,cz76,PZ,D,D,A,A,A,T,T,5,5,1,1,1,2,2,"cherry, MG (T)"
+6/23/15,JC,114,null,null,null,null,1,CZ,cz77,PZ,P,D,T,A,A,S,S,4,5,2,1,1,3,3,"SO: rocks/dirt, OS: mule fat"
+6/23/15,JC,115,null,null,null,null,1,CZ,cz78,PZ,S,T,T,T,T,D,D,3,2,2,2,2,5,5,BW/MF
+6/23/15,JC,375,376,null,null,null,2,CZ,cz79,PZ,D,A,A,A,D,T,T,5,1,1,1,5,2,2,null
+6/23/15,JC,182,null,null,null,null,1,CZ,cz80,PZ,D,S,A,A,A,S,S,5,3,1,1,1,3,3,"mule fat, oak, red berry"
+6/24/15,JC,136,null,null,null,null,1,CZ,cz81,Rd to PH,T,T,T,A,T,D,S,2,2,2,1,2,5,3,"BW, MF, toyon, oak, monkeyflower, LB"
+6/24/15,JC,137,null,null,null,null,1,CZ,cz82,Rd to PH,T,T,A,T,T,D,S,2,2,1,2,2,5,3,"%OT: road, dirt"
+6/24/15,JC,138,null,null,null,null,1,CZ,cz83,Rd to PH,S,A,A,A,A,D,S,3,1,1,1,1,5,3,"%OT: creek, road"
+6/24/15,JC,139,null,null,null,null,1,CZ,cz84,Rd to PH,S,A,A,A,A,D,S,3,1,1,1,1,5,3,"willow, MF, oak, cat tails"
+6/24/15,JC,140,null,null,null,null,1,CZ,cz85,Rd to PH,T,A,P,T,T,D,S,2,1,4,2,2,5,3,"MF, willow, oak, BW"
+6/24/15,JC,198,null,null,null,null,1,CZ,cz86,PH Eucs,S,A,S,A,A,D,S,3,1,3,1,1,5,3,"eucs, MF"
+6/24/15,JC,199,200,null,null,null,2,CZ,cz87,PH Eucs,D,A,S,A,A,D,T,5,1,3,1,1,5,2,"MF, willow  "
+6/24/15,JC,130,null,null,null,null,1,CZ,cz88,Del Norte Trail,P,S,T,A,T,D,D,4,3,2,1,2,5,5,CB and OT (weeds?)
+6/24/15,JC,131,null,null,null,null,1,CZ,cz89,Del Norte Trail,D,T,A,A,A,D,S,5,2,1,1,1,5,3,%OS: road
+6/24/15,JC,129,null,null,null,null,1,CZ,cz90,Del Norte Trail,S,T,T,A,A,D,P,3,2,2,1,1,5,4,road/bark
+6/25/15,JC,145,null,null,null,null,1,CZ,cz91,Rd to CH,T,A,T,T,P,P,T,2,1,2,2,4,4,2,willow and SA
+6/25/15,JC,146,null,null,null,null,1,CZ,cz92,Rd to CH,S,P,S,A,S,P,T,3,4,3,1,3,4,2,"LB, toyon, poison oak (T)"
+6/25/15,JC,147,152,null,null,null,2,CZ,cz93,Ranch,S,T,T,T,T,D,S,3,2,2,2,2,5,3,willow
+6/25/15,JC,148,null,null,null,null,1,CZ,cz94,Ranch,P,T,T,T,T,P,S,4,2,2,2,2,4,3,willow
+6/25/15,JC,151,null,null,null,null,1,CZ,cz95,Ranch,S,T,S,T,T,P,S,3,2,3,2,2,4,3,"willow, typha, horsetail"
+6/25/15,JC,254,null,null,null,null,1,CZ,cz96,Cen to CH,T,T,P,A,P,P,T,2,2,4,1,4,4,2,"%TO: dirt, MP: willow, BW, deer weed, MG, oak"
+6/25/15,JC,255,256,null,null,null,2,CZ,cz97,Cen to CH,D,S,S,A,S,P,T,5,3,3,1,3,4,2,"%TO: road, MP: BW, toyon, oak, pine, MG, deer weed"
+6/25/15,JC,257,null,null,null,null,1,CZ,cz98,Cen to CH,S,T,S,T,P,D,T,3,2,3,2,4,5,2,"BW, deerweed, monkeyflower, MG, pine, oak, mulefat"
+6/25/15,JC,258,259,null,null,null,2,CZ,cz99,Cen to CH,T,T,T,A,D,P,T,2,2,2,1,5,4,2,"deer weed, BW, willow, oak"
+6/25/15,JC,368,null,null,null,null,1,CZ,cz100,Rd to CH,D,S,S,A,S,T,A,5,3,3,1,3,2,1,CB/SA/Fe
+6/25/15,JC,354,355,null,null,null,2,CZ,cz101,Rd to CH,D,P,S,A,T,S,A,5,4,3,1,2,3,1,"LB, toyon  "
+6/25/15,JC,363,364,null,null,null,2,CZ,cz102,Rd to CH,S,T,D,A,A,T,T,3,2,5,1,1,2,2,TO: road
+6/25/15,JC,365,null,null,null,null,1,CZ,cz103,Rd to CH,D,S,P,A,A,T,A,5,3,4,1,1,2,1,null
+6/25/15,JC,357,null,null,null,null,1,CZ,cz104,Rd to CH,D,T,T,A,S,T,T,5,2,2,1,3,2,2,"MG, poison oak"
+6/25/15,JC,144,null,null,null,null,1,CZ,cz105,Rd to CH,P,S,D,A,T,S,T,4,3,5,1,2,3,2,"BW, oak, toyon"
+6/21/15,MPG,397,null,null,null,null,1,CZ,cz106,Cueva Valdez,D,P,A,A,A,T,T,5,4,1,1,1,2,2,%OT: toyon
+6/21/15,MPG,398,null,null,null,null,1,CZ,cz107,Cueva Valdez,P,P,A,A,A,S,P,4,4,1,1,1,3,4,"%OT: toyon, oak, ceanothus"
+6/24/15,JC,358,null,null,null,null,1,CZ,cz108,Rd to CH,D,A,A,A,D,T,T,5,1,1,1,5,2,2,"toyon, BW"
+6/24/15,JC,359,null,null,null,null,1,CZ,cz109,Rd to CH,P,S,D,A,S,T,T,4,3,5,1,3,2,2,"red berry, oak"
+6/24/15,JC,360,null,null,null,null,1,CZ,cz110,Rd to CH,P,P,T,A,T,T,T,4,4,2,1,2,2,2,"deerweed, toyon, dead coreopsis"
+6/24/15,JC,361,null,null,null,null,1,CZ,cz111,Rd to CH,D,D,S,A,A,T,T,5,5,3,1,1,2,2,"toyon, poison oak"
+6/24/15,JC,362,null,null,null,null,1,CZ,cz112,Rd to CH,D,S,S,A,T,T,T,5,3,3,1,2,2,2,"CB/FE, MG, toyon"
+6/24/15,JC,356,null,null,null,null,1,CZ,cz113,Rd to CH,S,T,T,A,S,P,T,3,2,2,1,3,4,2,"LB, oak"
+6/24/15,JC,353,null,null,null,null,1,CZ,cz114,Rd to CH,S,S,S,A,P,S,T,3,3,3,1,4,3,2,"LB, toyon"
+6/24/15,JC,367,null,null,null,null,1,CZ,cz115,Rd to CH,D,S,S,A,T,T,T,5,3,3,1,2,2,2,CB/Fe
+6/20/15,MPG,270,null,null,null,null,1,CZ,cz116,Navy Rd,D,P,P,A,T,T,T,5,4,4,1,2,2,2,bare ground
+6/20/15,MPG,272,273,null,null,null,2,CZ,cz117,Navy Rd,P,P,P,A,P,T,T,4,4,4,1,4,2,2,null
+6/20/15,MPG,274,null,null,null,null,1,CZ,cz118,Navy Rd,D,T,D,A,T,A,T,5,2,5,1,2,1,2,%OT: bare ground/road
+6/20/15,MPG,309,310,312,null,null,3,CZ,cz119,Navy Rd,D,A,P,A,P,A,A,5,1,4,1,4,1,1,null
+6/20/15,MPG,314,315,316,317,318,5,CZ,cz120,Navy Rd,D,A,D,A,A,T,T,5,1,5,1,1,2,2,%OT: bare ground
+6/20/15,MPG,321,null,null,null,null,1,CZ,cz121,East End Rd,D,T,T,A,A,T,D,5,2,2,1,1,2,5,"%OT: Deerweed, MG, BW"
+6/20/15,MPG,334,335,null,null,null,2,CZ,cz122,East End Rd,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+6/20/15,MPG,342,343,null,null,null,2,CZ,cz123,East End Rd,D,T,A,A,T,T,T,5,2,1,1,2,2,2,"%OT: MG, BW, deerweed"
+6/20/15,MPG,344,null,null,null,null,1,CZ,cz124,East End Rd,D,A,A,A,T,T,P,5,1,1,1,2,2,4,%OT: BW
+6/20/15,MPG,380,381,null,null,null,2,CZ,cz125,East End Rd,D,P,A,A,A,T,P,5,4,1,1,1,2,4,%OT: Fern
+6/20/15,MPG,382,null,null,null,null,1,CZ,cz126,Montanon,D,P,T,A,A,T,S,5,4,2,1,1,2,3,%OT: MG
+6/20/15,MPG,383,null,null,null,null,1,CZ,cz127,Montanon,D,P,A,A,A,T,P,5,4,1,1,1,2,4,"%OT: Ferns, toyon"
+6/20/15,MPG,132,null,null,null,null,1,CZ,cz128,Ridge Rd,D,A,P,A,A,A,S,5,1,4,1,1,1,3,"%OT: manzanita, oak, toyon"
+6/20/15,MPG,134,null,null,null,null,1,CZ,cz129,Coches,S,S,A,A,T,T,D,3,3,1,1,2,2,5,"RO: Willow; %OT: Salix, LB, oak"
+6/20/15,MPG,88,null,null,null,null,1,CZ,cz130,Coches,P,T,S,A,P,T,P,4,2,3,1,4,2,4,"%OT: BW, LB"
+6/21/15,MPG,251,null,null,null,null,1,CZ,cz131,Centinela,D,A,D,A,A,A,A,5,1,5,1,1,1,1,null
+6/21/15,MPG,249,250,null,null,null,2,CZ,cz132,Centinela,P,D,T,A,T,T,S,4,5,2,1,2,2,3,"%OT: Pine, juncus, oak, ceanothus, bare ground/road"
+6/21/15,MPG,248,null,null,null,null,1,CZ,cz133,Centinela,D,A,D,A,A,A,T,5,1,5,1,1,1,2,%OT: BW
+6/21/15,MPG,252,253,null,null,null,2,CZ,cz134,Centinela,P,T,P,A,S,S,S,4,2,4,1,3,3,3,"%OT: toyon, bare ground/road, pine, ceanothus"
+6/21/15,MPG,266,null,null,null,null,1,CZ,cz135,Diablo Rd,D,T,D,A,A,T,A,5,2,5,1,1,2,1,null
+6/21/15,MPG,267,268,269,null,null,3,CZ,cz136,Diablo Rd,D,T,T,A,T,T,T,5,2,2,1,2,2,2,"%OT: BW, deerweed"
+6/21/15,MPG,402,403,null,null,null,2,CZ,cz137,Diablo Rd,D,S,A,A,P,T,S,5,3,1,1,4,2,3,"%OT: bare ground, rock"
+6/21/15,MPG,401,null,null,null,null,1,CZ,cz138,Diablo Rd,P,P,A,A,A,T,D,4,4,1,1,1,2,5,%OT: fern
+6/21/15,MPG,400,null,null,null,null,1,CZ,cz139,Diablo Rd,D,D,A,A,A,T,P,5,5,1,1,1,2,4,"%OT: BW, ferns"
+6/21/15,JC,399,null,null,null,null,1,CZ,cz140,Diablo Rd,D,A,A,A,A,A,D,5,1,1,1,1,1,5,"%OT: Fern (D), BW (T)"
+6/22/15,MPG,86,null,null,null,null,1,CZ,cz141,VA airstrip,P,A,P,T,T,T,S,4,1,4,2,2,2,3,"%OT: bare ground/road, deerweed"
+6/22/15,MPG,87,null,null,null,null,1,CZ,cz142,VA airstrip,D,A,D,A,T,T,T,5,1,5,1,2,2,2,"%OT: bare ground, island red berry"
+6/22/15,MPG,89,null,null,null,null,1,CZ,cz143,VA airstrip,D,T,D,T,T,T,S,5,2,5,2,2,2,3,"%OT: bare ground/rock, LB, oak, BW"
+6/22/15,MPG,90,null,null,null,null,1,CZ,cz144,VA airstrip,D,A,D,A,A,T,S,5,1,5,1,1,2,3,"%OT: bare ground/road, MF"
+6/22/15,MPG,91,null,null,null,null,1,CZ,cz145,VA airstrip,D,T,D,A,A,T,T,5,2,5,1,1,2,2,"%OT: MG, LB"
+6/22/15,MPG,92,null,null,null,null,1,CZ,cz146,Valley Rd,D,A,P,A,A,T,S,5,1,4,1,1,2,3,"%OT: bare rock/creek, MF"
+6/22/15,MPG,93,94,null,null,null,2,CZ,cz147,Valley Rd,D,A,D,T,A,T,S,5,1,5,2,1,2,3,"%OT: bare groud/road, MF, MG"
+6/22/15,MPG,95,null,null,null,null,1,CZ,cz148,Valley Rd,D,A,P,A,A,T,S,5,1,4,1,1,2,3,"%OT: oak, LB"
+6/22/15,MPG,85,null,null,null,null,1,CZ,cz149,Valley Rd,P,S,S,A,S,S,S,4,3,3,1,3,3,3,"%OT: bare ground/road, BW, LB"
+6/22/15,MPG,103,null,null,null,null,1,CZ,cz150,Valley Rd,D,A,P,A,A,T,T,5,1,4,1,1,2,2,%OT: BW
+6/22/15,MPG,59,null,null,null,null,1,CZ,cz151,Valley Anchorage,D,A,D,A,T,A,T,5,1,5,1,2,1,2,%OT: bare ground
+6/22/15,MPG,60,null,null,null,null,1,CZ,cz152,Valley Anchorage,D,S,S,A,P,T,S,5,3,3,1,4,2,3,%OT: bare ground/road
+6/22/15,MPG,61,null,null,null,null,1,CZ,cz153,Valley Anchorage,D,A,D,A,A,T,T,5,1,5,1,1,2,2,%OT: LB
+6/22/15,MPG,62,null,null,null,null,1,CZ,cz154,Valley Anchorage,D,T,D,A,T,T,T,5,2,5,1,2,2,2,%OT: bare ground/road
+6/22/15,MPG,63,64,null,null,null,2,CZ,cz155,Valley Anchorage,D,A,D,A,T,T,T,5,1,5,1,2,2,2,%OT: bare ground
+6/22/15,MPG,65,null,null,null,null,1,CZ,cz156,Valley Anchorage,D,T,P,A,P,T,S,5,2,4,1,4,2,3,"%OT: LB, oak"
+6/22/15,MPG,67,null,null,null,null,1,CZ,cz157,Valley Anchorage,D,A,D,A,A,T,T,5,1,5,1,1,2,2,%OT: bare ground/road
+6/22/15,MPG,68,69,null,null,null,2,CZ,cz158,Valley Anchorage,D,A,D,A,A,T,T,5,1,5,1,1,2,2,%OT: bare ground/road
+6/22/15,MPG,66,null,null,null,null,1,CZ,cz159,Valley Anchorage,P,T,P,A,P,S,T,4,2,4,1,4,3,2,%OT: bare ground/road
+6/24/15,MPG,195,null,null,null,null,1,CZ,cz160,Rd to PH,S,A,P,T,T,A,D,3,1,4,2,2,1,5,"%OT: bare ground/rock, BW, deerweed, MF, LB"
+6/24/15,MPG,194,null,null,null,null,1,CZ,cz161,Rd to PH,P,T,S,A,A,S,D,4,2,3,1,1,3,5,"%OT: MF, oak, ceanothus, bare ground/rock"
+6/24/15,MPG,193,null,null,null,null,1,CZ,cz162,Rd to PH,S,T,S,T,T,T,D,3,2,3,2,2,2,5,"%OT: bare ground/creek/road, MF, BW, oak, LB"
+6/24/15,MPG,192,null,null,null,null,1,CZ,cz163,Rd to PH,S,A,T,S,S,T,D,3,1,2,3,3,2,5,"%OT: bare ground/creek, BW, MF, oak, ceanothus"
+6/24/15,MPG,196,201,null,null,null,2,CZ,cz164,PH Eucs,S,T,T,A,A,S,D,3,2,2,1,1,3,5,"%OT: Salix, oak, MF"
+6/24/15,MPG,202,null,null,null,null,1,CZ,cz165,PH Eucs,S,T,T,A,A,T,D,3,2,2,1,1,2,5,"%OT: Bare ground, eucs, MF, ceonothus"
+6/24/15,MPG,203,null,null,null,null,1,CZ,cz166,PH Eucs,S,A,S,T,S,T,P,3,1,3,2,3,2,4,"%OT: Bare ground/road, BW, MF"
+6/24/15,MPG,126,null,null,null,null,1,CZ,cz167,Wetland,P,S,A,A,T,S,D,4,3,1,1,2,3,5,"%OT: Salix, scirpus, Typha, Wetland veg"
+6/24/15,MPG,127,null,null,null,null,1,CZ,cz168,Wetland,P,S,A,A,T,S,D,4,3,1,1,2,3,5,"%OT: Salix, Scirpus, Typha"
+6/24/15,MPG,128,null,null,null,null,1,CZ,cz169,Wetland,P,T,A,A,T,S,D,4,2,1,1,2,3,5,"%OT: Salix, scirpus, Wetland veg"
+6/24/15,MPG,117,null,null,null,null,1,CZ,cz170,Prisoner's Harbor,S,T,A,A,A,S,D,3,2,1,1,1,3,5,"%OT: Salix, bare ground/rock, Scirpus, sedges, wetland veg"
+6/24/15,JC,118,null,null,null,null,1,CZ,cz171,Prisoner's Harbor,S,T,A,T,T,D,T,3,2,1,2,2,5,2,"%OT: oak, LB, rocks"
+6/24/15,MPG,119,null,null,null,null,1,CZ,cz172,Prisoner's Harbor,S,S,S,A,T,S,D,3,3,3,1,2,3,5,"%OT: MF, bare ground/rock, salix"
+6/24/15,JC,120,null,null,null,null,1,CZ,cz173,Prisoner's Harbor,D,T,T,A,A,T,D,5,2,2,1,1,2,5,%OT: LB
+6/24/15,JC,121,null,null,null,null,1,CZ,cz174,Prisoner's Harbor,P,T,A,A,T,D,S,4,2,1,1,2,5,3,"%OT: Salix (s), MG(trace), BW (t) "
+6/24/15,MPG,197,null,null,null,null,1,CZ,cz175,Eucs,S,A,T,A,A,S,D,3,1,2,1,1,3,5,"%OT: bare ground/creek, eucs"
+6/26/15,"MPG, JC",392,null,null,null,null,1,CZ,cz176,West Rd,P,T,S,A,S,T,P,4,2,3,1,3,2,4,"%OT: LB, bare ground"
+6/26/15,"MPG, JC",390,null,null,null,null,1,CZ,cz177,Rd to Frazer,D,T,S,A,T,T,T,5,2,3,1,2,2,2,%OT: LB
+6/26/15,"MPG, JC",391,null,null,null,null,1,CZ,cz178,Rd to Frazer,D,T,T,A,P,T,S,5,2,2,1,4,2,3,"OT: bare soil, LB"
+6/26/15,"MPG, JC",396,null,null,null,null,1,CZ,cz179,Rd to Frazer,T,A,S,A,S,D,S,2,1,3,1,3,5,3,SO: bare ground
+6/26/15,"MPG, JC",395,null,null,null,null,1,CZ,cz180,Rd to Frazer,S,A,S,A,P,T,T,3,1,3,1,4,2,2,LB
+6/26/15,"MPG, JC",393,394,null,null,null,2,CZ,cz181,Rd to Frazer,D,S,S,A,P,T,S,5,3,3,1,4,2,3,%OT: LB
+6/26/15,"MPG, JC",691,null,null,null,null,1,CZ,cz182,West End,D,S,A,A,T,T,A,5,3,1,1,2,2,1,"MG, LB"
+6/26/15,"MPG, JC",692,null,null,null,null,1,CZ,cz183,West End,D,S,S,A,T,T,S,5,3,3,1,2,2,3,"%OT: bare ground, LB"
+6/21/15,MPG,397,null,null,null,null,1,CZ,cz184,Cueva Valdez,D,P,A,A,A,T,T,5,4,1,1,1,2,2,%OT: toyon
+6/21/15,MPG,398,null,null,null,null,1,CZ,cz185,Cueva Valdez,P,P,A,A,A,S,P,4,4,1,1,1,3,4,"%OT: toyon, oak, ceonothus"
+6/21/15,MPG,384,null,null,null,null,1,CZ,cz186,Laguna,P,A,A,A,T,T,D,4,1,1,1,2,2,5,"%OT: MF, deerweed, bare, saix, BW"
+6/21/15,MPG,385,null,null,null,null,1,CZ,cz187,Christy,P,P,T,A,A,T,P,4,4,2,1,1,2,4,"%OT: Salix, toyon, MF"
+6/25/15,MPG,149,150,153,null,null,3,CZ,cz188,Christy,D,P,P,A,A,T,T,5,4,4,1,1,2,2,%OT: LB
+6/25/15,MPG,154,155,null,null,null,2,CZ,cz189,Christy,P,P,P,A,A,T,P,4,4,4,1,1,2,4,%OT: LB
+6/22/15,MPG,125,null,null,null,null,1,CZ,cz190,Portezuela,P,T,A,T,T,T,D,4,2,1,2,2,2,5,"%OT: salix, MF, BW"
+6/22/15,MPG,141,143,null,null,null,2,CZ,cz191,Portezuela,P,T,A,T,S,T,D,4,2,1,2,3,2,5,"%OT: MF, salix, ceonothus"
+6/22/15,MPG,142,null,null,null,null,1,CZ,cz192,Portezuela,S,T,A,T,S,S,D,3,2,1,2,3,3,5,"%OT: Salix, Typha, BW"
+6/22/15,MPG,178,null,null,null,null,1,CZ,cz193,Portezuela,S,T,T,T,T,T,D,3,2,2,2,2,2,5,"%OT: bare ground/rock, BW, MF"
+6/22/15,MPG,179,null,null,null,null,1,CZ,cz194,Portezuela,D,T,T,A,P,T,S,5,2,2,1,4,2,3,"%OT: oak, ceonothus, LB"
+6/22/15,MPG,180,null,null,null,null,1,CZ,cz195,Portezuela,D,T,T,A,P,T,P,5,2,2,1,4,2,4,"%OT: BW, bare ground/road, creek"
+6/22/15,MPG,181,null,null,null,null,1,CZ,cz196,Portezuela,D,A,A,A,A,T,T,5,1,1,1,1,2,2,"%OT: BW, MF"
+6/22/15,MPG,183,null,null,null,null,1,CZ,cz197,Portezuela,D,P,A,A,A,T,T,5,4,1,1,1,2,2,"%OT: BW, MF"
+6/22/15,MPG,374,null,null,null,null,1,CZ,cz198,Portezuela,D,T,A,A,P,T,T,5,2,1,1,4,2,2,%OT: LB
+6/22/15,MPG,377,null,null,null,null,1,CZ,cz199,Willows,P,P,A,A,P,T,P,4,4,1,1,4,2,4,"%OT: Salix, ceonothus"
+6/25/15,MPG,156,null,null,null,null,1,CZ,cz200,Valley Rd - Christy,D,S,P,A,A,T,T,5,3,4,1,1,2,2,%OT: LB
+6/25/15,MPG,157,null,null,null,null,1,CZ,cz201,Valley Rd - Christy,D,T,P,A,S,S,A,5,2,4,1,3,3,1,null
+6/25/15,MPG,158,null,null,null,null,1,CZ,cz202,Valley Rd - Christy,D,P,P,T,T,T,T,5,4,4,2,2,2,2,"%OT: BARE GROUND, LB"
+6/25/15,MPG,159,null,null,null,null,1,CZ,cz203,Valley Rd - Christy,D,A,P,A,S,A,A,5,1,4,1,3,1,1,null
+6/25/15,MPG,160,null,null,null,null,1,CZ,cz204,Valley Rd - Christy,D,T,S,A,T,A,S,5,2,3,1,2,1,3,"%OT: Unidentified shrub (pic 5-7), bare ground"
+6/25/15,MPG,161,null,null,null,null,1,CZ,cz205,Christy,S,T,T,T,T,T,D,3,2,2,2,2,2,5,"%OT: Salix, bare ground/rock, LB, MF"
+6/25/15,MPG,162,null,null,null,null,1,CZ,cz206,Valley Rd - Christy,P,P,P,T,S,T,S,4,4,4,2,3,2,3,%OT: bare ground/road
+6/24/15,MPG,163,null,null,null,null,1,CZ,cz207,Christy,S,T,T,T,T,T,D,3,2,2,2,2,2,5,"%OT: Salix, horsetail, typha, bare ground"
+6/25/15,MPG,164,null,null,null,null,1,CZ,cz208,Valley Rd - Christy,P,P,P,A,A,T,S,4,4,4,1,1,2,3,%OT: bare ground/road
+6/24/15,MPG,165,null,null,null,null,1,CZ,cz209,Valley Rd - Christy,D,S,D,A,A,A,T,5,3,5,1,1,1,2,%Bare ground/road
+6/25/15,MPG,166,167,null,null,null,2,CZ,cz210,Christy,S,S,S,T,T,S,D,3,3,3,2,2,3,5,"%OT: bare ground, salix, typha"
+6/25/15,MPG,168,null,null,null,null,1,CZ,cz211,Valley Rd - Christy,S,P,P,A,A,T,S,3,4,4,1,1,2,3,"%OT: road/bare ground, LB"
+6/25/15,MPG,169,171,null,null,null,2,CZ,cz212,Valley Rd - Christy,D,P,P,A,A,T,A,5,4,4,1,1,2,1,null
+6/25/15,MPG,170,null,null,null,null,1,CZ,cz213,Valley Rd - Christy,D,P,P,A,A,T,A,5,4,4,1,1,2,1,null
+6/25/15,MPG,345,346,347,348,null,4,CZ,cz214,Christy Airstrip,D,A,P,A,A,T,A,5,1,4,1,1,2,1,null
+6/25/15,MPG,349,null,null,null,null,1,CZ,cz215,Valley Rd - Christy,S,S,S,A,D,T,S,3,3,3,1,5,2,3,"%OT: BW, bare ground/road, salix"
+6/25/15,MPG,351,352,null,null,null,2,CZ,cz216,Valley Rd - Christy,P,S,D,A,T,T,S,4,3,5,1,2,2,3,%OT: bare ground/road
+6/25/15,MPG,366,null,null,null,null,1,CZ,cz217,Valley Rd - Christy,D,S,P,A,T,T,T,5,3,4,1,2,2,2,%OT: Salix
+6/26/15,"MPG, JC",691,null,null,null,null,1,CZ,cz218,West End,D,S,A,A,T,T,A,5,3,1,1,2,2,1,"%OT: MG, LB"
+6/26/15,"MPG, JC",692,null,null,null,null,1,CZ,cz219,West End,D,S,S,A,T,T,S,5,3,3,1,2,2,3,"%OT: bare ground, LB"
+5/23/16,"MPG, CSC",287,288,null,null,null,2,MI,mi1,Ranger Station,D,S,A,T,T,P,T,5,3,1,2,2,4,2,"bare ground, dead CB"
+5/23/16,"MPG, CSC",289,null,null,null,null,1,MI,mi2,Ranger Station,D,S,A,S,S,T,T,5,3,1,3,3,2,2,bare ground
+5/23/16,"MPG, CSC",300,null,null,null,null,1,MI,mi3,Ranger Station,D,S,A,A,A,T,S,5,3,1,1,1,2,3,"OT: coeropsis, bare ground"
+5/23/16,"MPG, CSC",301,null,null,null,null,1,MI,mi4,Ranger Station,D,S,A,A,A,T,T,5,3,1,1,1,2,2,bare ground
+5/23/16,"MPG, CSC",285,null,null,null,null,1,MI,mi5,Fox Pens,D,P,A,S,A,P,T,5,4,1,3,1,4,2,bare ground
+5/23/16,"MPG, CSC",303,null,null,null,null,1,MI,mi6,Airstrip,D,D,A,A,A,S,T,5,5,1,1,1,3,2,bare ground
+5/23/16,"MPG, CSC",302,304,null,null,null,2,MI,mi7,Airstrip,D,P,A,A,A,S,S,5,4,1,1,1,3,3,bare ground
+5/23/16,"MPG, CSC",286,null,null,null,null,1,MI,mi8,Fox Pens,D,T,A,S,A,S,T,5,2,1,3,1,3,2,Habit: Lupine/coreopsis; %OT: bare ground
+5/23/16,"MPG, CSC",282,283,284,null,null,3,MI,mi9,Fox Pens,S,S,A,P,A,D,T,3,3,1,4,1,5,2,bare ground
+5/23/16,"MPG, CSC",290,null,null,null,null,1,MI,mi10,CG,D,D,A,A,T,S,A,5,5,1,1,2,3,1,null
+5/23/16,"MPG, CSC",291,294,null,null,null,2,MI,mi11,CG,D,S,A,A,T,D,T,5,3,1,1,2,5,2,OT: Coreopsis; %OT= bare ground
+5/23/16,"MPG, CSC",292,293,null,null,null,2,MI,mi12,CG,D,S,A,T,T,S,T,5,3,1,2,2,3,2,bare ground
+5/23/16,"MPG, CSC",295,298,null,null,null,2,MI,mi13,CG,D,T,A,T,S,T,T,5,2,1,2,3,2,2,bare ground
+5/23/16,"MPG, CSC",296,299,null,null,null,2,MI,mi14,CG,D,S,A,A,S,S,A,5,3,1,1,3,3,1,null
+5/23/16,"MPG, CSC",297,null,null,null,null,1,MI,mi15,CG,D,S,A,A,T,D,T,5,3,1,1,2,5,2,OT: Coreopsis; T = bare ground
+5/24/16,"MPG, CSC",540,542,null,null,null,2,MI,mi16,Willow Canyon,D,D,A,A,S,T,A,5,5,1,1,3,2,1,null
+5/24/16,"MPG, CSC",541,null,null,null,null,1,MI,mi17,Willow Canyon,D,P,A,A,A,T,P,5,4,1,1,1,2,4,OT: bare ground
+5/24/16,"MPG, CSC",543,null,null,null,null,1,MI,mi18,Willow Canyon,P,A,A,A,D,S,T,4,1,1,1,5,3,2,%OT: bare ground; habitat: SA
+5/24/16,"MPG, CSC",544,null,null,null,null,1,MI,mi19,Willow Canyon,D,T,A,A,T,P,T,5,2,1,1,2,4,2,OT: coreopsis; %OT: bare ground
+5/24/16,"MPG, CSC",545,null,null,null,null,1,MI,mi20,Willow Canyon,D,S,A,A,P,S,T,5,3,1,1,4,3,2,%OT: bare ground
+5/24/16,"MPG, CSC",546,null,null,null,null,1,MI,mi21,Willow Canyon,P,S,A,T,D,S,T,4,3,1,2,5,3,2,null
+5/24/16,"MPG, CSC",518,null,null,null,null,1,MI,mi22,East Trail,D,T,A,T,T,D,A,5,2,1,2,2,5,1,null
+5/24/16,"MPG, CSC",519,520,null,null,null,2,MI,mi23,East Trail,D,T,A,T,T,S,A,5,2,1,2,2,3,1,null
+5/24/16,"MPG, CSC",521,522,null,null,null,2,MI,mi24,East Trail,D,D,A,A,A,S,T,5,5,1,1,1,3,2,%OT: bare ground
+5/24/16,"MPG, CSC",532,null,null,null,null,1,MI,mi25,East Trail,D,T,A,A,A,T,A,5,2,1,1,1,2,1,null
+5/24/16,"MPG, CSC",534,535,null,null,null,2,MI,mi26,East Trail,D,P,A,A,A,S,A,5,4,1,1,1,3,1,null
+5/24/16,"MPG, CSC",533,null,null,null,null,1,MI,mi27,East Trail,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+5/24/16,"MPG, CSC",536,null,null,null,null,1,MI,mi28,East Trail,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+5/24/16,"MPG, CSC",537,null,null,null,null,1,MI,mi29,East Trail,D,P,A,A,A,A,A,5,4,1,1,1,1,1,null
+5/24/16,"MPG, CSC",538,539,null,null,null,2,MI,mi30,East Trail,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+5/25/16,"MPG, CSC",471,null,null,null,null,1,MI,mi31,SMH,D,P,A,T,A,T,S,5,4,1,2,1,2,3,bare ground
+5/25/16,"MPG, CSC",472,480,null,null,null,2,MI,mi32,SMH,D,S,A,S,A,S,S,5,3,1,3,1,3,3,isocoma
+5/25/16,"MPG, CSC",481,482,483,null,null,3,MI,mi33,SMH,P,P,A,D,A,S,P,4,4,1,5,1,3,4,isocoma
+5/25/16,"MPG, CSC",484,null,null,null,null,1,MI,mi34,SMH,P,S,A,P,T,P,P,4,3,1,4,2,4,4,bare ground/isocoma
+5/25/16,"MPG, CSC",485,486,null,null,null,2,MI,mi35,SMH,S,S,A,D,A,S,S,3,3,1,5,1,3,3,bare ground
+5/25/16,"MPG, CSC",487,488,null,null,null,2,MI,mi36,SMH,P,P,A,P,A,S,P,4,4,1,4,1,3,4,bare ground
+5/25/16,"MPG, CSC",307,null,null,null,null,1,MI,mi37,Nidever Canyon,P,P,A,S,P,D,P,4,4,1,3,4,5,4,isocoma
+5/25/16,"MPG, CSC",489,490,491,null,null,3,MI,mi38,Sandblast Pass,P,P,A,D,A,T,S,4,4,1,5,1,2,3,bare ground
+5/25/16,"MPG, CSC",492,493,494,null,null,3,MI,mi39,Sandblast Pass,P,P,A,P,T,T,S,4,4,1,4,2,2,3,bare ground
+5/25/16,"MPG, CSC",547,548,549,null,null,3,MI,mi40,HPT,S,S,A,T,S,D,S,3,3,1,2,3,5,3,%OT: isocoma
+5/25/16,"MPG, CSC",550,null,null,null,null,1,MI,mi41,HPT,S,S,A,D,A,P,T,3,3,1,5,1,4,2,bare ground
+5/25/16,"MPG, CSC",561,562,null,null,null,2,MI,mi42,HPT,D,T,A,D,A,S,S,5,2,1,5,1,3,3,%OT: isocoma
+5/25/16,"MPG, CSC",563,564,null,null,null,2,MI,mi43,HPT,P,S,A,P,T,S,P,4,3,1,4,2,3,4,%OT: isocoma
+5/27/16,"MPG, CSC",565,566,null,null,null,2,MI,mi44,HPT,D,T,A,D,A,S,T,5,2,1,5,1,3,2,%OT: isocoma
+5/27/16,"MPG, CSC",567,null,null,null,null,1,MI,mi45,HPT,P,A,A,D,A,S,S,4,1,1,5,1,3,3,%OT: bare ground/rock
+5/27/16,"MPG, CSC",568,null,null,null,null,1,MI,mi46,HPT,S,A,A,P,A,P,P,3,1,1,4,1,4,4,"bare ground, rock"
+5/25/16,"MPG, CSC",569,570,null,null,null,2,MI,mi47,HPT,T,A,A,D,A,P,T,2,1,1,5,1,4,2,"bare ground, rock"
+5/25/16,"MPG, CSC",571,null,null,null,null,1,MI,mi48,HPT,S,A,A,D,A,D,A,3,1,1,5,1,5,1,null
+5/25/16,"MPG, CSC",305,306,308,null,null,3,MI,mi49,Nidever Canyon,D,S,A,T,S,D,T,5,3,1,2,3,5,2,isocoma
+5/26/16,"MPG, CSC",495,496,null,null,null,2,MI,mi50,Green Mtn,D,D,A,T,A,P,T,5,5,1,2,1,4,2,bare ground
+5/26/16,"MPG, CSC",497,498,null,null,null,2,MI,mi51,Green Mtn,D,P,A,T,A,P,S,5,4,1,2,1,4,3,bare ground
+5/26/16,"MPG, CSC",551,552,null,null,null,2,MI,mi52,Green Mtn,P,P,D,P,T,S,S,4,4,5,4,2,3,3,"%OT: bare ground, rock"
+5/26/16,"MPG, CSC",553,554,null,null,null,2,MI,mi53,Green Mtn,P,D,A,S,T,P,A,4,5,1,3,2,4,1,null
+5/26/16,"MPG, CSC",555,556,null,null,null,2,MI,mi54,Green Mtn,P,P,A,A,A,P,A,4,4,1,1,1,4,1,null
+5/26/16,"MPG, CSC",557,558,null,null,null,2,MI,mi55,Green Mtn,P,D,A,T,A,S,A,4,5,1,2,1,3,1,null
+5/26/16,"MPG, CSC",559,560,null,null,null,2,MI,mi56,Green Mtn,T,T,A,D,A,D,T,2,2,1,5,1,5,2,bare ground
+5/26/16,"MPG, CSC",499,500,null,null,null,2,MI,mi57,Jackass Flats,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+5/26/16,"MPG, CSC",501,null,null,null,null,1,MI,mi58,Jackass Flats,D,D,A,A,a,A,A,5,5,1,1,1,1,1,null
+5/26/16,"MPG, CSC",502,null,null,null,null,1,MI,mi59,Jackass Flats,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+5/26/16,"MPG, CSC",503,504,null,null,null,2,MI,mi60,Jackass Flats,D,D,A,A,A,P,S,5,5,1,1,1,4,3,bare ground
+5/26/16,"MPG, CSC",505,506,517,null,null,3,MI,mi61,Jackass Flats,D,D,A,A,A,T,A,5,5,1,1,1,2,1,null
+5/26/16,"MPG, CSC",507,508,509,null,null,3,MI,mi62,Jackass Flats,P,P,A,D,A,P,S,4,4,1,5,1,4,3,isocoma
+5/26/16,"MPG, CSC",510,511,null,null,null,2,MI,mi63,Jackass Flats,P,P,A,D,T,S,T,4,4,1,5,2,3,2,bare ground
+5/26/16,"MPG, CSC",512,513,null,null,null,2,MI,mi64,Dry Lake Bed,D,P,A,A,A,T,A,5,4,1,1,1,2,1,null
+5/26/16,"MPG, CSC",514,515,516,null,null,3,MI,mi65,Dry Lake Bed,D,P,A,D,A,T,S,5,4,1,5,1,2,3,"isocoma, bare ground"
+5/26/16,"MPG, CSC",523,524,525,526,527,5,MI,mi66,Dune Fields,D,D,A,A,A,A,A,5,5,1,1,1,1,1,null
+5/26/16,"MPG, CSC",528,529,null,null,null,2,MI,mi67,Dune Fields,T,A,A,D,A,D,A,2,1,1,5,1,5,1,iceplant
+5/26/16,"MPG, CSC",530,531,null,null,null,2,MI,mi68,Dune Fields,S,S,A,S,A,P,D,3,3,1,3,1,4,5,isocoma
