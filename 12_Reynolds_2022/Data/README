@@ -1,0 +1,181 @@
+####################################
+This README.txt file was generated on 2022-04-14 by Victoria Reynolds
+
+GENERAL INFORMATION
+
+1. Title of Dataset: Adjacent crop type impacts potential pollinator communities and their pollination services in remnants of natural vegetation
+
+2. Author Information
+	A. Principal Investigator Contact Information
+		Name: Victoria A. Reynolds
+		Institution: University of Queensland
+		Email: v.reynolds@uq.edu.au
+
+3. Date of data collection: 2015-07-01 to 2016-09-30 
+
+4. Geographic location of data collection: This study was conducted across 235 km of the central wheatbelt of SW Western Australia.
+
+5. Information about funding sources that supported the collection of the data: VAR acknowledges support from the Commonwealth Scientific and Industrial Research Organisation through a postgraduate research grant. This project was also partially funded by the Australian Research Council (DP140100574) awarded to MMM. 
+
+####################################
+
+SHARING/ACCESS INFORMATION
+
+1. Licenses/restrictions placed on the data: 
+
+2. Links to publications that cite or use the data: 
+
+3. Recommended citation for this dataset: 
+
+####################################
+
+DATA & FILE OVERVIEW
+
+1. File List: 
+  1. abund.comp.csv
+  2. pollen.csv
+  3. long.abund.comp.csv
+
+2. Relationship between files, if important: We use two main datasets - one of pollinator abundance and diversity (abund.comp.csv), and one of pollen load diversity (pollen.csv). A third dataset (long.abund.comp.csv) is used as a long version of abund.comp for individual specific analyses.
+
+####################################
+
+METHODOLOGICAL INFORMATION
+
+1. Description of methods used for collection/generation of data: 
+Study System
+This study was conducted across 235 km of the central wheatbelt of SW Western Australia (distance from north-most to southeast-most remnant) in July-September of 2015 and 2016 (Supplementary Figure 1). The Eucalypt woodlands of the Western Australian Wheatbelt account for a substantial proportion of the native vegetation in the region (about 44.6 percent) though are made up of fragmented patches dispersed within an agricultural matrix of wheat, canola, barley, oats, and lupins (DAWE, 2015). A major sub-group of this woodland type in this region is the York gum-Jam woodlands (YGJW), currently listed as a Priority III Critically Endangered Ecological Community under the EPBC Act (DAWE, 2015). This woodland supports an overstorey dominated by two main tree taxa, Eucalyptus loxophleba subsp. loxophleba (York gum) and Acacia acuminata (Jam). The understorey in these woodlands is a mosaic of largely native shrubs, perennial grasses, and annual forbs (Dwyer, et al., 2015). Annual forbs in this system are dominated by representatives of the Asteraceae, Goodeniaceae, and Araliaceae families with some common species known to require insects for pollination (Lai et al., 2015; Staples et al., 2016). The canopy trees in this system do not flower at the same time as canola and wheat, but the wildflower understorey does, with flowering starting at approximately the same time as canola (in July), extending up to two months after canola and wheat flowering stops in late August. In this study region, we selected 24 YGJW remnants (12 each year: six canola (Brassica napus), six wheat (Triticum sp.)), each greater than 0.1km2 and in intact condition (DAWE, 2015), supporting diverse annual wildflower communities. Some remnants were included in both study years, but with swapped categories between years due to crop rotations, while others were only studied for one year (see Supplementary Table 1). Across the two years, we established 324 sampling plots; with 252 sampling plots inside remnants, which were then divided into two groups: 108 core plots (>200 m from the agricultural edge) and 144 remnant edge plots. Remnant plots were divided among those adjacent to wheat and those adjacent to canola fields (<50 m from agricultural edge; Supplementary Figure 1). The remaining 72 sampling plots were established in canola fields adjacent to each woodland remnant bordered by canola (Supplementary Figure 1; Supplementary Table 1). Initial surveys of wheat fields revealing no flower visiting insects, so these were not surveyed further. 
+
+Plot-level variables
+In the 24 remnants, vegetation surveys and woodland “remnant” characteristics were recorded in 15 x 15 m plots during the months of July-September in 2015 and 2016. Measurements included: % bare soil within plot, proportion woody debris (i.e., dead logs) within each plot (from 0 to 1 – estimated as the amount of the plot containing woody debris that could be used as nesting substrate for solitary bees), % flower cover in the plot, and a categorization of the understorey community by dominant flowering plant life-history strategy (i.e. predominately native forbs, exotic forbs, shrubs or grasses). These measurements were repeated three times in each plot, one survey conducted during each flowering season. The same data were collected for remnants adjacent to canola, as well as an estimate of the canola flowering phenological stage in the relevant adjacent field, using three categories: ‘peak’, >70% inflorescences flowering; ‘past-peak’, between 40-70%; and ‘late’, end of the flowering period with <40% open flowers. Other variables included size of remnant (km2), size of the agricultural field adjacent to the study remnants (km2) and distance of each plot within the remnant to the nearest agricultural edge (m). 
+
+Sampling of potential pollinators
+Potential pollinators were collected three times from each plot across the canola flowering season (once during early canola bloom, peak canola bloom and late canola bloom). We sampled only on sunny or partially cloudy, still days in 20-minute time periods during peak insect activity times (10 am – 3 pm). The 20-minute timer was paused during insect capture and handling time. Preliminary surveys found minimal (often no) insect activity outside of this peak activity window possibly due to low temperatures (mean minimum temp of 6.1C for July) early in the morning and late in these winter afternoons. Potential pollinators were collected only if they landed on a flower and were observed making contact with the anthers or stigmas of a flower. We were not able to directly assess whether each insect was actively pollinating during each visit, and thus note that collected insects in this study are potential pollinators only.  For conciseness, however, we refer to them as “pollinators”. Insects were captured using sterile plastic containers or bags to ensure all body pollen was accounted for and no cross contamination of pollen from different individuals occurred. All insects were identified by experts to the lowest taxonomic level possible, using collected specimens. Given the limited taxonomic work that has been done on Western Australian bees and flies, most species were only identifiable to the family or genus level.  For species whose taxonomy was unclear, we categorized into morphospecies. Due to low samples sizes (n = 36 individuals), wasps were excluded from the study. Sampling efforts in canola fields were limited to the edge of the crop fields due to access restrictions. All honeybees collected in this study were considered to be feral (unmanaged), as managed honeybee hives were not used by the canola growers in this region during the study years. This is a very sparsely populated region of Australia (Perenjori Shire has a population density of 0.07 people/km2 (ABS, 2017)) and thus we are confident we were aware of all homesteads and know that no local farms or households were keeping honeybees during the study period. Though feral honeybees are known to reach very high colony densities in Australia (Cunningham, et al., 2022).
+
+Pollen load collection 
+We recorded pollen load (the composition and number of pollen grains) found on 893 of the 923 individual pollinators collected in the 2015 season. The remaining 30 insects had no pollen on their bodies. Pollen loads were assessed by swabbing each collection bag and insect body with Fuchsin jelly, which was then melted on a glass slide and prepared as per Kearns and Inouye (1993) (see Supplementary Material Methodology 1). We also created a pollen library to help with pollen compositional assessment, using the same Fuchsin jelly approach, where a voucher specimen of every flowering plant species in each remnant during each visit. Details regarding pollen identification and counting can be found in the Supplementary Material Methodology 2. 
+
+
+2. Methods for processing the data: 
+All statistical analyses were performed using R Statistical Software version 3.5 (R Core Team 2021). Rarefaction curves (function rarefy, package “vegan”) were used to calculate and assess species richness, evenness and diversity measures.
+
+To answer questions 1 and 2, we ran generalised linear mixed-effect models using pollinator diversity and pollen load data from remnants only. For questions 1, we used three common metrics of pollinator diversity, analysing each in separate models. Diversity measures were total pollinator abundance, species richness and Shannon’s diversity (calculated using the R package “vegan”) divided into the three major pollinator taxa: bees, flies and beetles. For question 2, response variables were: pollen species richness per load and evenness (calculated as pollen species diversity divided by the log(pollen species richness)). We ran models for each pollinator diversity and pollen load response variable separately with fixed effects: crop type, the amount of flower cover in the remnant, the size of the remnant, and the distance from the edge of the remnant (function glmer, package “lme4”, and function glmmTMB, package “glmmTMB”) with Poisson (abundance, richness) and Gaussian (Shannon’s diversity, evenness). Preliminary analyses indicated that our measures of % bare soil and proportion of woody debris (i.e., dead logs) were not important terms in any of our models, thus were excluded in model construction and comparison. We included remnant and plot identity as nested random factors in all analyses, and year of data collection as a separate random factor for pollinator diversity models. While the year of data collection only contained two levels, we chose to include it as a random effect to help model the spatiotemporal autocorrelations in the observed data (Barr, et al., 2013; Harrison, et al., 2018; Arnqvist, 2020;). Where overdispersion was evident (fly abundance), a zero-inflation factor was also included in model formulation. We also analysed model fit and residual interpretation plots to ensure model assumptions were met. Finally, we used log likelihood and Akaike weight information criteria (function model.sel, package “MuMIn”) to identify the most parsimonious model for each pollinator and pollen load response variable from a set of 20 biologically feasible candidate models (Supplementary Table 2).
+
+To assess how the composition of pollen loads differed between canola fields and remnants adjacent to canola, we used NMDS ordination and PERMANOVA (see Supplementary Material Methodology 2 for details).
+
+To answer question 3, we focused on the six most abundant bee species in our study (Apis mellifera (honeybee), Neopasiphae mirabillis, and four different Leioproctus species (details in Supplementary Table 3)) as sample sizes of other species were too small. We pooled together data on these six species and used generalised linear models (function glm, package “stats”) with Poisson distributions to examine canola phenology on common bee abundances by including predictor variables: stage of canola flowering (peak, past-peak, and late) and crop/plot type (canola field; remnant edge plots, <200 m from agricultural edge; and core plots, >200 m from agricultural edge). To assess the impacts of canola flowering phenology on the proportion of canola pollen in pollen loads, we used similar generalised linear models and predictor variables, but with a binomial distribution. This modelling approach was used due to the small sample size. We used the same approach to examine the effects of honeybees on the five most common bee pollinators in our study (excluding honeybees themselves).
+
+3. Instrument- or software-specific information needed to interpret the data: 
+<include full name and version of software, and any necessary packages or libraries needed to run scripts>
+
+####################################
+
+DATA-SPECIFIC INFORMATION FOR: abund.comp.csv
+
+1. Number of variables: 34 variables
+
+2. Number of cases/rows: 1710 observations
+
+3. Variable List: 
+<list variable name(s), description(s), unit(s)and value labels as appropriate for each>
+'data.frame':	1710 obs. of  34 variables:
+ $ trip.site : Factor w/ 327 levels: a unique identifier for the combination of trip and site columns
+ $ taxa      : Factor w/ 5 levels: insect taxa (bee, fly, beetle, wasp, bug)
+ $ abundance : int: abundance of insect found at site
+ $ site.year : Factor w/ 112 levels: a unique identifier for the combination of site and year columns
+ $ site      : Factor w/ 87 levels: the site name for where insects were sampled (15 x 15m quadrat)
+ $ location  : Factor w/ 20 levels: the location (reserve) that sites were sampled in
+ $ trip      : Factor w/ 3 levels: the trip number that the data collection occurred (3 trips each year)
+ $ ec        : Factor w/ 3 levels: the site type (in crop field, reserve core or reserve edge)
+ $ trip.ec   : Factor w/ 10 levels: a unique identifier for the combination of trip and site type
+ $ l.context : Factor w/ 2 levels: whether the site was adjacent to a canola field or wheat field
+ $ wood.crop : Factor w/ 2 levels: whether the site was in a reserve (wood) or crop field (crop)
+ $ veg       : chr: a description of the main vegetation type
+ $ shrubs    : int: the number of shrubs in the site (shrub was defined as a woody plant branched near the base and typically less than 5-8m tall)
+ $ trees     : int: the number of trees in the site (tree was defined as a woody plant typically more than 5m tall, wit a prominent single stem)
+ $ dom.under : chr: a description of the main understorey vegetation
+ $ canopy    : chr: a description of the canopy height
+ $ soil      : num: a proportion of bare soil in the site (0 = none, 1 is completely bare soil)
+ $ debris    : num: a proportion of woody debris in the site (0 = none, 1 is completely covered in woody debris)
+ $ flow.cov  : num: a proportion of flower cover in the site (0 = none, 1 is complete floral cover)
+ $ canola.cov: int: the percentage of flowering canola in adjacent crop field (0-100%) 
+ $ dist      : num: the distance the site is from the edge of the crop field (in meters)
+ $ scdist    : num: the scaled distance the site is from the edge of the crop field (in kilometers)
+ $ native.veg: num: the total size of the nature reserve/remnant vegeation that the site is in, or not to for crop sites (in km2)
+ $ ag.field  : num: the total size of the agricultural field that the site is in, or next to for woodland sites (in km2)
+ $ year      : Factor w/ 2 levels "1","2": the year in which the data was collected (1 = 2015, 2 = 2016)
+ $ changeover: Factor w/ 2 levels "no","yes": whether or not the adjacent crop field changed from one crop type to another in woodland sites that were visited in both years
+ $ rich      : int: species richness per site
+ $ shan      : num  species diversity (Shannon) per site
+ $ rare.rich : num  rarified species richness per site
+ $ rare.shan : num  rarified species diversity (Shannon) per site
+
+####################################
+
+DATA-SPECIFIC INFORMATION FOR: pollen.csv
+
+1. Number of variables: 55 variables
+
+2. Number of cases/rows: 893 observations
+
+3. Variable List: 
+$ insectID     : chr: the individual identifier for captured insects
+ $ reserv       : Factor w/ 63 levels: the unique identifier of site for each sampling bout (the same as site in abund.comp.csv dataframe)
+ $ taxa         : Factor w/ 4 levels: insect taxa (bee, fly, beetle, wasp)
+ $ trip         : Factor w/ 3 levels: the trip number that the data collection occurred (3 trips each year)
+ $ sex          : Factor w/ 4 levels: the sex of the insect (M = male, F = female, U = Unknown)
+ $ location     : Factor w/ 14 levels: the location (reserve) that sites were sampled in
+ $ lat          : num: the latitude of the site (measured in the middle of the site)
+ $ long         : num: the longtitude of the site (measured in the middle of the site)
+ $ l.context    : Factor w/ 3 levels: whether the site was adjacent to a canola field or wheat field (or in the crop field)
+ $ ce           : Factor w/ 3 levels: the site type (in crop field, reserve core or reserve edge - same as ec in abund.comp.csv)
+ $ total.poll   : int: the total number of pollen grains found on the insect
+ $ sc.total.poll: num: the scaled total number of pollen grains found on the insect (divided by 100)
+ $ b.napus      : int: the total number of pollen grains from canola (Brassica napus)
+ $ e.planta     : int: the total number of pollen grains from Patterson's curse (Echium plantagineum L.)
+ $ prot         : int: the total number of pollen grains from Proteaceae plants
+ $ aster        : int: the total number of pollen grains from Asteraceae plants
+ $ v.rosea      : int: the total number of pollen grains from Goodeniaceae plants
+ $ sola         : int: the total number of pollen grains from Solanaceae plants
+ $ acacia       : int: the total number of pollen grains from Acacia plants
+ $ fire         : int: the total number of pollen grains from Borya constricta
+ $ prop.noncrop : num: the proportion of pollen grains from non-crop (non-canola) plants
+ $ prop.crop    : num: the proportion of pollen grains from crop (canola) plants
+ $ prop.tree    : num: the proportion of pollen grains from trees (acacia and proteaceae plants)
+ $ prop.flow    : num: the proportion of pollen grains from understorey flowering plants (aster + v.rosea + sola + fire)
+ $ richness     : int: the pollen richness per insect
+ $ wood.crop    : Factor w/ 2 levels: whether the site was in a reserve (wood) or crop field (crop)
+ $ veg          : chr: a description of the main vegetation type
+ $ shrubs    : int: the number of shrubs in the site (shrub was defined as a woody plant branched near the base and typically less than 5-8m tall)
+ $ trees     : int: the number of trees in the site (tree was defined as a woody plant typically more than 5m tall, wit a prominent single stem)
+ $ dom.under : chr: a description of the main understorey vegetation
+ $ canopy    : chr: a description of the canopy height
+ $ soil      : num: a proportion of bare soil in the site (0 = none, 1 is completely bare soil)
+ $ debris    : num: a proportion of woody debris in the site (0 = none, 1 is completely covered in woody debris)
+ $ flow.cov  : num: a proportion of flower cover in the site (0 = none, 1 is complete floral cover)
+ $ canola.cov: int: the percentage of flowering canola in adjacent crop field (0-100%) 
+ $ dist      : num: the distance the site is from the edge of the crop field (in meters)
+ $ scdist    : num: the scaled distance the site is from the edge of the crop field (in kilometers)
+ $ native.veg: num: the total size of the nature reserve/remnant vegeation that the site is in, or not to for crop sites (in km2)
+ $ year         : Factor w/ 2 levels: the year in which the data was collected (1 = 2015, 2 = 2016)
+ $ changeover   : Factor w/ 2 levels "no","yes": whether or not the adjacent crop field changed from one crop type to another in woodland sites that were visited in both years
+ $ Species      : chr: the species name, or lowest taxonomic unit of identification for each species
+ $ Simp         : chr: a shortened code of the species name
+ $ context.site : chr: a unique identifier combinining l.context (canola or wheat adjacent) and site type (edge or core site)
+ $ shan         : num: the pollen diversity (Shannon) of each insect
+ $ even         : num: the evenness of each pollen of each insect
+ $ rare.rich    : num: the rarified richness of pollen of each insect
+ $ rare.shan    : num: the rarified diversity (Shannon) of pollen for each insect
+ $ rare.even    : num: the rarified evenness of pollen of each insect
+ $ wildf        : num: the total number of pollen grains that were from understorey flowering plants
+ 
+####################################
+DATA-SPECIFIC INFORMATION FOR: long.abund.comp.csv
+
+1. Number of variables: 41 variables
+
+2. Number of cases/rows: 2144 observations
+
+3. Description of variables: all variable names are the same as abund.comp.csv. This dataset is just the "long" form of the abund.comp.csv dataset (i.e. each row is a single species, whereas each row in abund.comp.csv is a site)
+
+ ####################################
