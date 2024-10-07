@@ -112,5 +112,5 @@ Comment:
 ## 16_Oleksyn_et_al_2020
 Link:<https://onlinelibrary.wiley.com/doi/10.1111/ele.13587>\
 Test: regression, Ancova, potential for mixed-effects modelling\
-Aim: This study aims to evaluate how demographic diversity (DD) and demographic composition (DC) differ across temperate and tropical forests, and how these differences in demography relate to species richness, aboveground biomass (AGB), and carbon residence time.\
-Comment: Assess climate change fingerprint on the foliage of Swedish Scots pine (Pinus sylvestris L.) forests
+Aim: Assesses climate change fingerprint on the foliage of Swedish Scots pine (Pinus sylvestris L.) forests \
+Comment: 
