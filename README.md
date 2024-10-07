@@ -101,3 +101,12 @@ Link:<https://www.science.org/doi/10.1126/science.1248484>\
 Test: Correlations, temporal trends, linear regression\
 Aim: This study quantifies patterns of temporal α diversity, measured as change in local diversity, and temporal β diversity, measured as change in community composition, across taxa, biomes, and geographic regions.\
 Comment:
+
+## 15_Needham_et_al_2022
+
+Link:<https://onlinelibrary.wiley.com/doi/full/10.1111/gcb.16100>\
+Test: Clustering analysis, regression\
+Aim: This study aims to evaluate how demographic diversity (DD) and demographic composition (DC) differ across temperate and tropical forests, and how these differences in demography relate to species richness, aboveground biomass (AGB), and carbon residence time.\
+Comment:
+
+
