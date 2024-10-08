@@ -95,7 +95,7 @@ Test: ANOVA t-test\
 Aim: This study tested the effects of different treatments on invasive cattail populations in wetlands. The treatments included biomass harvesting and the creation of aquatic connectivity channels, and they were compared against control plots. Data includes changes in plant, fish, macroinvertebrate, and amphibian populations, along with water quality data, to assess the impact of these treatments over two years.\
 Comment:
 
-## 14_Dornelas_et_al_2024
+## 14_Dornelas_et_al_2014
 
 Link:<https://www.science.org/doi/10.1126/science.1248484>\
 Test: Correlations, temporal trends, linear regression\
