@@ -114,3 +114,11 @@ Link:<https://onlinelibrary.wiley.com/doi/10.1111/ele.13587>\
 Test: regression, Ancova, potential for mixed-effects modelling\
 Aim: Assesses climate change fingerprint on the foliage of Swedish Scots pine (Pinus sylvestris L.) forests \
 Comment: 
+
+## 17_Bialic-Murphy_et_al_2024
+Link:<https://zenodo.org/records/11615767>\
+Test: regression, clustering analysis\
+Aim: to calculate the mean life expectancy and maximal life span for a wide range of trees across the Americas  \
+Comment: 
+
+
