@@ -1,0 +1,9 @@
+load("/Users/xzulda/Library/CloudStorage/GoogleDrive-dfzuleta@gmail.com/My Drive/academic/GU/teaching/autum-2024/BIO515/BIO515-datasets-student-exercise/15_Needham_et_al_2022/data/github_demographic_rate_params.RData")
+a <- readRDS("/Users/xzulda/Library/CloudStorage/GoogleDrive-dfzuleta@gmail.com/My Drive/academic/GU/teaching/autum-2024/BIO515/BIO515-datasets-student-exercise/15_Needham_et_al_2022/data/github_demographic_rate_params.RData")
+load("/Users/xzulda/Library/CloudStorage/GoogleDrive-dfzuleta@gmail.com/My Drive/academic/GU/teaching/autum-2024/BIO515/BIO515-datasets-student-exercise/15_Needham_et_al_2022/data/github_demographic_rate_params.RData")
+s()
+ls()
+pca.mat
+head(pca.mat)
+a <- pca.mat[pca.mat$Site == "amacayacu",]
+a
